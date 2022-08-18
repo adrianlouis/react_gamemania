@@ -1,0 +1,28 @@
+.bannerCarrossel{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.bannerImgs{
+    width: 100%;
+  
+}
+
+.bannerDots{
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+}
+
+.dot{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid #fff;
+    margin: 0 5px;
+}

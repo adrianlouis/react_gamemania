@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+header{
+    height: 50px;
+    border: 1px solid;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px 0 100px;
+    align-items: center;
+    background-color: #333;
+    color: #dedede;
+}
+
+.headerLogo{
+    font-size: 2rem;
+    color: #ddd;
+    text-shadow: rgb(146, 0, 204) 0 0 10px;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+}
+
+.headerUserName{
+    min-width: 20%;
+    display: flex;
+    justify-content: space-between;
+}
+
+i{
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.headerBtns{
+    /* border: 1px solid red; */
+    height: 100%;
+    min-width: 60%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    transition: all 1s;
+}
+
+.headerBtns > * {
+    transition: all 1s;
+    margin: 0 10px
+}
+
+.aviso{
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+input{
+    border-radius: 5px;
+    border: transparent;
+    padding: 3px 5px;
+    font-weight: 700;
+    transition: all .3s;
+    width: 120px;
+}
+
+header > i:nth-child(1) {
+    font-size: 1.7rem;
+    text-shadow: rgb(146, 0, 204) 0 0 3px, rgb(146, 0, 204) 0 0 5px, rgb(146, 0, 204) 0 0 6px;
+    position: absolute;
+    left: 15px;
+}
+
+.headerButtons{
+    padding: 2px 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.headerCartNumber{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background-color: #000;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .8rem;
+}
+

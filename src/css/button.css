@@ -1,0 +1,17 @@
+.buttonBuy{
+    width: 80%;
+    height: 30px;
+    background-color: rgb(146, 0, 204);
+    background-image: linear-gradient(to bottom right, rgb(173, 0, 241), rgb(78, 0, 109));
+    color: #ddd;
+    font-weight: 700;
+    box-shadow: rgb(146, 0, 204) 0 0 10px;
+    border-radius: 7px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.buttonBuy:active{
+    border: 1px solid #aaa;
+    box-shadow: rgb(146, 0, 204) 0 0 8px;
+}

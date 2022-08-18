@@ -1,0 +1,79 @@
+.destSectionTitle{
+    color: #eee;
+    background-color: #222;
+    font-size: 1.7rem;
+    font-weight: 700;
+    border-bottom: 2px solid #ccc;
+    margin: auto;
+    /* width: 100vw; */
+    text-align: center;
+}
+
+.destCard{
+    margin: 50px 10px 0 10px;
+    border: 1px solid;
+    width: 200px;
+    height: 450px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #eee;
+    position: relative;
+    box-shadow: rgb(146, 0, 204) 0 0 3px;
+}
+
+.destCard:last-child{
+    margin: 50px 10px;
+}
+
+.destImg{
+    width: 200px;
+    height: 300px;
+    /* border: 1px solid #f00; */
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.destNome{
+    margin-top: 10px;
+    height: 40px;
+    font-size: 1.2rem;
+}
+
+.destContainer{
+    background-color: #222;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 250px);
+    justify-content: space-evenly;
+}
+
+.destPreco{
+    font-weight: 700; 
+    font-size: 1.2rem;
+
+    position: relative;
+}
+
+.destDescontoSpan{
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: .8rem;
+    color: #fff;
+    border: 1px solid #fff;
+    font-weight: 700;
+    background-color: #f00;
+    padding: 3px 6px;
+}
+
+.destDelDesconto{
+    font-size: .8rem;
+    font-weight: 400;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
