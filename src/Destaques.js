@@ -1,50 +1,51 @@
 import React from "react";
-import Button from "./Button";
 import Card from "./Card";
 import css from "./css/destaques.css";
-// import capas from './capas'
+import { GlobalContext } from "./GlobalContext";
 
 const Destaques = () => {
-  const jogos = [
-    {
-      nome: "The King of Fighters XV",
-      capa: "kof.jpg",
-      preco: 125,
-      desconto: 0.1,
-    },
-    {
-      nome: "Halo Infinite",
-      capa: "haloinfinite.jpg",
-      preco: 250,
-    },
-    {
-      nome: "Diablo 2",
-      capa: "diablo2.jpg",
-      preco: 215,
-    },
-    {
-      nome: "Farcry 6",
-      capa: "farcry6.jpg",
-      preco: 159,
-    },
-    {
-        nome: "Elden Ring",
-        capa: "eldenRing.jpg",
-        preco: 180,
-        desconto: 0.15
-    },
-    {
-        nome: "Demon Slayer",
-        capa: "demonSlayer.jpg",
-        preco: 430,
-        desconto: 0.05
-    },
-    {
-        nome: "Horizon Zero Dawn",
-        capa: "horizon.png",
-        preco: 350
-    }
-  ];
+  // const jogos = [
+  //   {
+  //     nome: "The King of Fighters XV",
+  //     capa: "kof.jpg",
+  //     preco: 125,
+  //     desconto: 0.1,
+  //   },
+  //   {
+  //     nome: "Halo Infinite",
+  //     capa: "haloinfinite.jpg",
+  //     preco: 250,
+  //   },
+  //   {
+  //     nome: "Diablo 2",
+  //     capa: "diablo2.jpg",
+  //     preco: 215,
+  //   },
+  //   {
+  //     nome: "Farcry 6",
+  //     capa: "farcry6.jpg",
+  //     preco: 159,
+  //   },
+  //   {
+  //       nome: "Elden Ring",
+  //       capa: "eldenRing.jpg",
+  //       preco: 180,
+  //       desconto: 0.15
+  //   },
+  //   {
+  //       nome: "Demon Slayer",
+  //       capa: "demonSlayer.jpg",
+  //       preco: 430,
+  //       desconto: 0.05
+  //   },
+  //   {
+  //       nome: "Horizon Zero Dawn",
+  //       capa: "horizon.png",
+  //       preco: 350
+  //   }
+  // ];
+
+  const games = React.useContext(GlobalContext)
 
   function importAll(r) {
     let images = {};
@@ -58,12 +59,19 @@ const Destaques = () => {
     require.context("./capas", false, /\.(png|jpe?g|svg)$/)
   );
 
+  function listaCarrinho(j){
+    games.setWishlist([...games.wishlist, j])
+    console.log(games.wishlist)
+   }
+   
+   console.log(games.wishlist)
+
   return (
     <div>
       <p className="destSectionTitle">Produtos em Destaque</p>
       <div className="destContainer">
-        {jogos.map((jogo) => (
-          <>
+        {games.jogos.map((jogo) => (
+          <div key={jogo.nome}>
             <Card
               className="destCard"
               src={images[jogo.capa]}
@@ -76,8 +84,10 @@ const Destaques = () => {
               classPreco="destPreco"
               classDesconto="destDelDesconto"
               classDescontoTag="destDescontoSpan"
-            />
-          </>
+              onclick={()=> listaCarrinho(jogo)}
+              />
+              {/* {console.log(games.wishlist)} */}
+          </div>
         ))}
       </div>
     </div>

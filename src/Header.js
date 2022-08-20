@@ -1,8 +1,10 @@
 import React from "react";
 import css from "./css/header.css";
+import { GlobalContext } from "./GlobalContext";
 
 const Header = () => {
 
+  const numeroPedidos = React.useContext(GlobalContext)
   const [inputUser, setInputUser] = React.useState("");
   const [inputSenha, setInputSenha] = React.useState("");
   const [logado, setLogado] = React.useState(null);
@@ -10,7 +12,6 @@ const Header = () => {
   const [logar, setLogar] = React.useState(false);
   const [registrar, setRegistrar] = React.useState(false);
   const [inputs, setInputs] = React.useState(false);
-  const [cartItens, setCartItens] = React.useState(null)
   const [users, setUsers] = React.useState([{email:'Louis', senha:'code'}])
 
   function handleChange({ target }) {
@@ -79,7 +80,7 @@ const Header = () => {
 
   return (
     <header>
-      <i class="fas fa-dragon" />
+      <i className="fas fa-dragon" />
       {aviso ? (
         <span
           className="aviso"
@@ -95,13 +96,13 @@ const Header = () => {
         <div className="headerBtns">
           {!registrar && (
             <span onClick={handleLogar} style={{ cursor: "pointer" }}>
-              <i class="fa-solid fa-user" /> {inputs? '' : 'Entrar'}
+              <i className="fa-solid fa-user" /> {inputs? '' : 'Entrar'}
             </span>
           )}
 
           {!logar && (
             <span onClick={handleRegister} style={{ cursor: "pointer" }}>
-              <i class="fa-solid fa-user-pen" /> {inputs? '' : 'Registrar'}
+              <i className="fa-solid fa-user-pen" /> {inputs? '' : 'Registrar'}
             </span>
           )}
 
@@ -132,8 +133,8 @@ const Header = () => {
 
           {!inputs && (
             <span style={{ cursor: "pointer", position: 'relative' }}>
-              <i class="fa-solid fa-cart-shopping" /> Carrinho
-            {cartItens && <div className="headerCartNumber">{cartItens}</div>}</span>
+              <i className="fa-solid fa-cart-shopping" /> Carrinho
+            {numeroPedidos.wishlist.length !== 0 && <div className="headerCartNumber">{(numeroPedidos.wishlist).length}</div>}</span>
           )}
         </div>
       )}
@@ -141,7 +142,7 @@ const Header = () => {
       {logado && (
         <div className="headerUserName">
           <span>{inputUser}</span>
-          <i class="fa-solid fa-arrow-right-from-bracket" onClick={handleExit}>
+          <i className="fa-solid fa-arrow-right-from-bracket" onClick={handleExit}>
             {" "}
             sair
           </i>

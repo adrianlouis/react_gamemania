@@ -1,0 +1,87 @@
+#cart > * {
+    color: #ddd;
+}
+
+.minhacesta{
+    border: 1px solid red;
+    padding: 20px;
+    font-size: 1.5rem;
+}
+
+.cartContainer{
+    border: 1px solid blue;
+    display: grid;
+    grid-template-areas: 
+    'endereco endereco endereco resumo'
+    'pedido pedido pedido resumo';
+}
+
+.cartEndereco{
+    box-shadow: #222 0 0 10px;
+    padding: 30px;
+    margin: 15px 15px 30px;
+    grid-area: endereco;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.cartPedidosContainer, .cartResume{
+    margin: 15px;
+    box-shadow: #444 0 0 3px;
+}
+
+.cartPedidos{
+    /* border: 1px solid blue; */
+    /* background-color: #222; */
+    margin: 10px 0;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* grid-template-columns: auto auto auto; */
+}
+.cartPedidos:hover{
+    background-color: #222;
+}
+
+.cartPedidos > * {
+    /* border: 1px solid green; */
+    width: 50%;
+    /* margin: auto; */
+    justify-content: center;
+    display: flex;
+    text-align: end;
+}
+
+.cartPedidos > *:nth-last-child(1){
+    width: 10%;
+}
+
+.cartPedidos:nth-child(1){
+    margin-top: 0;
+    padding: 5px;
+    box-shadow: #222 0 0 10px;
+}
+.cartPedidos:nth-child(1):hover{
+    background-color: #111;
+}
+
+.cartPedidos:nth-last-child(1){
+    margin-bottom: 0;
+}
+
+.cartWishes{
+    /* width: 65%; */
+    grid-area: pedido;
+}
+
+.cartResume{
+    /* border: 1px solid green; */
+    grid-area: resumo;
+    padding: 30px;
+}
+
+.cartResume > span:nth-child(1) {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
