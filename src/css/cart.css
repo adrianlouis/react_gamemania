@@ -3,21 +3,25 @@
 }
 
 .minhacesta{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     padding: 20px;
     font-size: 1.5rem;
+    box-shadow: #444 0 0 5px;
+    margin: 15px;
 }
 
 .cartContainer{
-    border: 1px solid blue;
-    display: grid;
+    /* border: 1px solid blue; */
+    /* display: grid;
     grid-template-areas: 
-    'endereco endereco endereco resumo'
-    'pedido pedido pedido resumo';
+    'endereco endereco endereco endereco resumo'
+    'pedido pedido pedido pedido resumo'; */
+    display: flex;
+    justify-content: space-between;
 }
 
 .cartEndereco{
-    box-shadow: #222 0 0 10px;
+    box-shadow: #444 0 0 3px;
     padding: 30px;
     margin: 15px 15px 30px;
     grid-area: endereco;
@@ -28,6 +32,7 @@
 .cartPedidosContainer, .cartResume{
     margin: 15px;
     box-shadow: #444 0 0 3px;
+    /* border: 1px solid tomato; */
 }
 
 .cartPedidos{
@@ -54,13 +59,14 @@
 }
 
 .cartPedidos > *:nth-last-child(1){
-    width: 10%;
+    width: 20%;
 }
 
 .cartPedidos:nth-child(1){
     margin-top: 0;
     padding: 5px;
     box-shadow: #222 0 0 10px;
+    font-weight: 600;
 }
 .cartPedidos:nth-child(1):hover{
     background-color: #111;
@@ -71,17 +77,31 @@
 }
 
 .cartWishes{
-    /* width: 65%; */
-    grid-area: pedido;
+    width: 65%;
+    /* grid-area: pedido; */
+    
+    /* border: 1px solid cadetblue; */
 }
 
 .cartResume{
     /* border: 1px solid green; */
+    width: 30%;
     grid-area: resumo;
     padding: 30px;
+    height: 250px;
 }
 
-.cartResume > span:nth-child(1) {
+.cartResumeLines{
+    /* border: 1px solid blue; */
+    height: 150px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.cartResume > span {
     font-size: 1.2rem;
     font-weight: 600;
+    /* border: 1px solid red; */
 }

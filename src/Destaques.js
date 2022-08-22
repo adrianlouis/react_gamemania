@@ -61,10 +61,15 @@ const Destaques = () => {
 
   function listaCarrinho(j){
     games.setWishlist([...games.wishlist, j])
-    console.log(games.wishlist)
+    // console.log(games.wishlist)
+    games.setPreco(games.preco + j.preco)
+
+    if (j.desconto){
+      games.setResumoDesconto(games.resumoDesconto+(j.desconto*j.preco))
+    }
    }
    
-   console.log(games.wishlist)
+  //  console.log(games.wishlist)
 
   return (
     <div>

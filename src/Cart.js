@@ -16,9 +16,22 @@ const Cart = () => {
 
     }
 
+    // function resumoDesconto(){
+    //   for (let i = 0; i < dados.wishlist.length; i++) {
+    //     const element = [i];
+        
+    //   }
+    // }
+ 
+
     function remover(elem){
       const deletado = dados.wishlist.filter((remove)=> remove !== elem)
       dados.setWishlist(deletado)
+      dados.setPreco(dados.preco - elem.preco)
+      
+      if(elem.desconto){
+        dados.setResumoDesconto(dados.resumoDesconto - (elem.desconto * elem.preco))
+      }
     }
 
   return (
@@ -39,7 +52,7 @@ const Cart = () => {
             <div className='cartPedidos'>
               <span>Produto</span>
               <span>Preço</span>
-              <span>Del</span>
+              <span>Excluir</span>
             </div>
             }
             
@@ -61,10 +74,12 @@ const Cart = () => {
         {dados.wishlist.length !== 0 &&
         <section className='cartResume'>
         <span>Resumo dos pedidos</span>
+        <div className='cartResumeLines'>
         <p>Quantidade de produtos: {dados.wishlist.length}</p>
-        <p>Valor total: {dados.preco} </p>
-        <p>Desconto: </p>
-        <p>Valor final:</p>
+        <p>Valor total: {(dados.preco).toLocaleString('pt-Br' , {style: "currency", currency: "BRL"})} </p>
+        <p>Desconto: {(dados.resumoDesconto).toLocaleString('pt-Br', {style: 'currency', currency: 'BRL'})}</p>
+        <p>Valor final: {(dados.preco - dados.resumoDesconto).toLocaleString('pt-Br', {style: 'currency', currency: 'BRL'})}</p>
+        </div>
     </section>
         }
 

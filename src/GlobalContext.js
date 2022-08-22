@@ -6,6 +6,7 @@ export const GlobalStorage = ({children}) =>{
 
     const [wishlist, setWishlist] = React.useState([])
     const [preco, setPreco] = React.useState(0)
+    const [resumoDesconto, setResumoDesconto] = React.useState(0)
     const jogos = [
         {
           nome: "The King of Fighters XV",
@@ -47,18 +48,7 @@ export const GlobalStorage = ({children}) =>{
         }
       ];
 
-      React.useEffect(()=>{
-        for (let i = 0; i < wishlist.length; i++) {
-          setPreco( preco + wishlist[i].preco );
-          // console.log(precoTodo)
 
-          
-        }
-
-        // setPreco(precoTodo)
-        // console.log(precoTodo)
-        // console.log(preco)
-      },[wishlist])
     
-      return <GlobalContext.Provider value={{jogos, preco, wishlist, setWishlist}}>{children}</GlobalContext.Provider>
+      return <GlobalContext.Provider value={{jogos, preco, setPreco, resumoDesconto, setResumoDesconto, wishlist, setWishlist}}>{children}</GlobalContext.Provider>
 }
