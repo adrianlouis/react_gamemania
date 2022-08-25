@@ -1,4 +1,5 @@
 import React from "react";
+import Banner from "./Banner";
 import Card from "./Card";
 import css from "./css/destaques.css";
 import { GlobalContext } from "./GlobalContext";
@@ -73,6 +74,7 @@ const Destaques = () => {
 
   return (
     <div>
+      <Banner/>
       <p className="destSectionTitle">Produtos em Destaque</p>
       <div className="destContainer">
         {games.jogos.map((jogo) => (

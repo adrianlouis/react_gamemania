@@ -13,7 +13,7 @@ header{
 
 .headerLogo{
     font-size: 2rem;
-    color: #ddd;
+    color: #dedede;
     text-shadow: rgb(146, 0, 204) 0 0 10px;
     font-weight: 700;
     font-family: 'Roboto', sans-serif;
@@ -74,18 +74,24 @@ header > i:nth-child(1) {
 }
 
 .headerCartNumber{
-    height: 15px;
-    width: 15px;
+    height: 20px;
+    width: 20px;
     border-radius: 50%;
     border: 2px solid #fff;
     background-color: #000;
     position: absolute;
     top: -10px;
-    left: 10px;
+    left: 85px;
     color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: .8rem;
+    font-weight: 700
+}
+
+a{
+    color: #dedede;
+    text-decoration: none;
 }
 

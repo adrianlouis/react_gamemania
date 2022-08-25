@@ -6,16 +6,24 @@ import Banner from './Banner';
 import Cart from './Cart';
 import UserContext from './UserContext';
 import { GlobalStorage } from './GlobalContext';
+import {BrowserRouter, Routes, Route } from 'react-router-dom'
+import NotFound from './NotFound';
 
 function App() {
   return (
-    <GlobalStorage>
-    < Header />
-    {/* <Banner /> */}
-    <Destaques/>
-      <Cart />
+    <BrowserRouter>
+        <GlobalStorage>
+          < Header />
+        <Routes>
+          <Route path='/' element={<Destaques/>} />
+          <Route path='cart' element={<Cart/>} />
+          <Route path='*' element={<NotFound />} />
+          {/* <Destaques/> */}
+          {/* <Cart /> */}
 
-    </GlobalStorage>
+        </Routes>
+        </GlobalStorage>
+    </BrowserRouter>
   );
 }
 

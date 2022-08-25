@@ -45,6 +45,17 @@ export const GlobalStorage = ({children}) =>{
             nome: "Horizon Zero Dawn",
             capa: "horizon.png",
             preco: 350
+        },
+        {
+          nome: "Hades",
+          capa: "hades.jpg",
+          preco: 200
+        },
+        {
+          nome: "Back 4 Blood",
+          capa: "back4blood.jpg",
+          preco: 150,
+          desconto: 0.2
         }
       ];
 

@@ -1,6 +1,7 @@
 import React from "react";
 import css from "./css/header.css";
 import { GlobalContext } from "./GlobalContext";
+import {Link} from 'react-router-dom'
 
 const Header = () => {
 
@@ -13,6 +14,12 @@ const Header = () => {
   const [registrar, setRegistrar] = React.useState(false);
   const [inputs, setInputs] = React.useState(false);
   const [users, setUsers] = React.useState([{email:'Louis', senha:'code'}])
+  const [iconToggle, setIconToggle] = React.useState(false)
+  // const iconCart = ""
+
+  function handleIconCart(){
+    iconToggle ? setIconToggle(false) : setIconToggle(true)
+  }
 
   function handleChange({ target }) {
     if (target.id === "userId") {
@@ -92,6 +99,8 @@ const Header = () => {
         <span className="headerLogo">GameMania</span>
       )}
 
+        <Link to='/'><span><i className="fa-solid fa-house"/> Home</span></Link>
+
       {!logado && (
         <div className="headerBtns">
           {!registrar && (
@@ -131,21 +140,35 @@ const Header = () => {
             </>
           )}
 
+          <Link to='cart'>
           {!inputs && (
             <span style={{ cursor: "pointer", position: 'relative' }}>
-              <i className="fa-solid fa-cart-shopping" /> Carrinho
-            {numeroPedidos.wishlist.length !== 0 && <div className="headerCartNumber">{(numeroPedidos.wishlist).length}</div>}</span>
+              <i className="fa-solid fa-cart-shopping" /> Carrinho 
+            {numeroPedidos.wishlist.length !== 0 && <div className="headerCartNumber">{(numeroPedidos.wishlist).length}</div>}
+            
+            </span>
           )}
+          </Link>
         </div>
       )}
 
       {logado && (
         <div className="headerUserName">
-          <span>{inputUser}</span>
-          <i className="fa-solid fa-arrow-right-from-bracket" onClick={handleExit}>
+          <span style={{fontWeight: '700'}}><i className="fa-solid fa-user" /> {inputUser}</span>
+          
+          <Link to='cart'>
+          
+            <span style={{ cursor: "pointer", position: 'relative' }}>
+              <i className="fa-solid fa-cart-shopping" /> Carrinho 
+            {numeroPedidos.wishlist.length !== 0 && <div className="headerCartNumber">{(numeroPedidos.wishlist).length}</div>}
+            
+            </span>
+          
+          </Link>
+
+          <span><i className="fa-solid fa-arrow-right-from-bracket" onClick={handleExit}>
             {" "}
-            sair
-          </i>
+          </i> Sair</span>
         </div>
       )}
     </header>
