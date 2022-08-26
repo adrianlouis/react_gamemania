@@ -7,6 +7,8 @@ export const GlobalStorage = ({children}) =>{
     const [wishlist, setWishlist] = React.useState([])
     const [preco, setPreco] = React.useState(0)
     const [resumoDesconto, setResumoDesconto] = React.useState(0)
+    const [logado, setLogado] = React.useState(null)
+    const [users, setUsers] = React.useState([{email:'Louis', senha:'code'}])
     const jogos = [
         {
           nome: "The King of Fighters XV",
@@ -61,5 +63,5 @@ export const GlobalStorage = ({children}) =>{
 
 
     
-      return <GlobalContext.Provider value={{jogos, preco, setPreco, resumoDesconto, setResumoDesconto, wishlist, setWishlist}}>{children}</GlobalContext.Provider>
+      return <GlobalContext.Provider value={{users, logado, setLogado, setUsers, jogos, preco, setPreco, resumoDesconto, setResumoDesconto, wishlist, setWishlist}}>{children}</GlobalContext.Provider>
 }

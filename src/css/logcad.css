@@ -1,0 +1,50 @@
+h1{
+    color: #dedede;
+    margin: 20px;
+}
+
+.logcad{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #dedede;
+    flex-direction: column;
+}
+
+#divInput > label {
+    font-size: 1.2rem;
+    margin: 5px 0px;
+}
+
+#divInput input {
+    border-radius: 0;
+    width: 200px;
+}
+
+.logcad > #divInput{
+    display: flex;
+    /* justify-content: center; */
+    align-items: flex-start;
+    flex-direction: column;
+    margin: 10px 0;
+}
+
+#logcadBtn{
+    width: 210px;
+    margin: 10px;
+    height: 30px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 0;
+    font-weight: 700;
+}
+
+.logcad > p {
+    margin: 10px;
+}
+
+#aviso{
+    font-size: 1.3rem;
+    color: #c00
+}

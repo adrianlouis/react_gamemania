@@ -58,7 +58,7 @@ const Cart = () => {
               <div className='cartPedidos' style={{padding: '5px 30px'}}>Não há produtos no carrinho!</div>
               ) : (
                 dados.wishlist.map((pedido, index)=>(
-                  <div key={pedido.nome+index} className='cartPedidosLine'>
+                  <div key={pedido.nome+index} className='cartPedidos'>
                     <span>{pedido.nome}</span>
                     <span>{formatarParaReal(pedido.preco)}</span>
                     <span>{pedido.desconto ? formatarParaReal(pedido.preco * pedido.desconto) : formatarParaReal(0)} </span>
