@@ -17,14 +17,11 @@ const Header = () => {
 <Link to='/'><span><i className="fa-solid fa-house"/> Home</span></Link>
         {!context.logado ? (<>
             <Link to='logcad'><i className="fa-solid fa-user" /> Entrar</Link>
-            <Link to='register'><i className="fa-solid fa-user-pen" /> Registrar</Link>
-            
-            
-            
+            <Link to='register'><i className="fa-solid fa-user-pen" /> Registrar</Link>   
         </>
         ) : (
           <>
-          <span>{context.logado.email}</span>
+          <span><strong>{context.logado.email}</strong></span>
           <Link to='/' onClick={()=>context.setLogado(null)}><span><i className="fa-solid fa-arrow-right-from-bracket" >
           </i> Sair</span></Link>
           </>

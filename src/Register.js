@@ -11,7 +11,6 @@ const Register = () => {
     const [senha, setSenha] = React.useState('')
     const [senhaConf, setSenhaConf] = React.useState('')
     const [aviso, setAviso] = React.useState(null)
-    const [jaRegistrado, setJaRegistrado] = React.useState(false)
     const context = React.useContext(GlobalContext)
     const navigate = useNavigate()
 
@@ -28,24 +27,7 @@ const Register = () => {
             erroAviso('Suas senhas não conferem!')
         } else {
 
-            setJaRegistrado(false)
-            context.users.map((user)=>{
-                if (user.email === email){
-                    erroAviso('Email já cadastrado!')
-                    console.log(user.email+' ja existe')
-                    setJaRegistrado(true)
-                }
-            })
-
-            if (jaRegistrado === true){
-                return 
-            }else{
-                erroAviso(null)
-                context.setUsers([...context.users, {email: email, senha: senha}])
-                console.log(context.users)
-                navigate('/')
-            }
-            
+            testando()
             
         }
     }
@@ -56,6 +38,24 @@ const Register = () => {
             setAviso(null)
         }, 4000);
     }
+
+   function testando(){
+    
+    const reg = context.users.filter((test)=>test.email.includes(nome))
+    
+    if (reg.length > 0){
+        erroAviso('Usuário já existe!')
+        return
+    } else {
+        erroAviso('Usuário cadastrado!')
+        context.setUsers([...context.users, {email: nome, senha: senha}])
+
+        setTimeout(() => {
+            context.setLogado({email: nome})
+            navigate('/')
+        }, 3000);
+    }
+   }
 
   return (
       <div className='logcad'>
