@@ -64,7 +64,7 @@ const Register = () => {
 
       <Input labelFor='nome' textLabel='nome completo' inputType='text' handleChange={(event)=>setNome(event.target.value)} inputVal={nome} />
       <Input labelFor='nascDate' textLabel='data de nascimento' inputType='date' handleChange={(event)=>setNascimento(event.target.value)} inputVal={nascimento} />
-      <Input labelFor='email' textLabel='e-mail' inputType='email' handleChange={(event)=>setEmail(event.target.value)} inputVal={email} />
+      <Input labelFor='email' textLabel='e-mail' inputType='email' handleChange={(event)=>setEmail(event.target.value)} inputVal={email}  />
       <Input labelFor='senha' textLabel='senha' inputType='password' handleChange={(event) => setSenha(event.target.value)} inputVal={senha} />
       <Input labelFor='senhaConfirmation' textLabel='confirme a senha' inputType='password' handleChange={(event)=>setSenhaConf(event.target.value)} inputVal={senhaConf} />
       <button id='logcadBtn' onClick={cadastrar}>criar seu cadastro</button>

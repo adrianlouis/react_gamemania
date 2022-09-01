@@ -1,8 +1,9 @@
 import React from "react";
-import Banner from "./Banner";
 import Card from "./Card";
 import css from "./css/destaques.css";
 import { GlobalContext } from "./GlobalContext";
+import MaisVendidos from "./MaisVendidos";
+import SectionTitle from "./SectionTitle";
 
 const Destaques = () => {
   // const jogos = [
@@ -48,6 +49,8 @@ const Destaques = () => {
 
   const games = React.useContext(GlobalContext)
 
+  const [newArr, setNewArr] = React.useState([])
+
   function importAll(r) {
     let images = {};
     r.keys().map((item, index) => {
@@ -65,17 +68,52 @@ const Destaques = () => {
     // console.log(games.wishlist)
     games.setPreco(games.preco + j.preco)
 
+
+    const newState = games.jogos.map((item)=>{
+      if (item === j){
+        return {...item, click: (j.click + 1)}
+      }
+
+      return item
+    })
+
+    games.setJogos(newState)
+    // console.log(games.jogos)
+
+    // games.jogos.map((elem)=>{
+    //   elem === j? setNewArr([...newArr, {nome: j.nome, capa: j.capa, preco: j.preco, desconto: j.desconto, click: (j.click + 1)}]) : setNewArr([...newArr, {elem}])
+    // })
+
+    // console.log(newArr)
+
+
+    // const jogoClick = ga
+    // const listaJogos = games.jogos.filter((filtro)=> filtro !== j)
+    // games.setJogos([...listaJogos, {nome: j.nome, capa: j.capa, preco: j.preco, desconto: j.desconto, click: j.click + 1}])
+
+
+
+    // console.log(games.jogos)
+      
+    
+
     if (j.desconto){
       games.setResumoDesconto(games.resumoDesconto+(j.desconto*j.preco))
     }
    }
    
-  //  console.log(games.wishlist)
-
   return (
-    <div>
-      <Banner/>
-      <p className="destSectionTitle">Produtos em Destaque</p>
+    <div >
+      {/* <Banner/> */}
+      {/* <div className="destSectionTitle">
+        <span>
+        Produtos em Destaque
+        </span>
+      <p className="destaqueTexto">Confira os jogos em destaque do nosso site. Entre eles estão os melhores games de todos os tempos para o seu lazer ser prazeroso do início ao fim de sua aventura!</p>
+      </div> */}
+      <SectionTitle title='Produtos em Destaque' subtitle='Confira os jogos em destaque do nosso site. Entre eles estão os melhores games de todos os tempos para o seu lazer ser prazeroso do início ao fim de sua aventura!' />
+      <div className="destaqueContainer">
+      
       <div className="destContainer">
         {games.jogos.map((jogo) => (
           <div key={jogo.nome}>
@@ -93,10 +131,12 @@ const Destaques = () => {
               classDescontoTag="destDescontoSpan"
               onclick={()=> listaCarrinho(jogo)}
               />
-              {/* {console.log(games.wishlist)} */}
           </div>
         ))}
       </div>
+      
+      </div>
+      <MaisVendidos/>
     </div>
   );
 };

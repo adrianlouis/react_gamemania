@@ -13,7 +13,7 @@ const Input = ({labelFor, textLabel, inputType, inputVal, handleChange}) => {
   return (
     <div id='divInput'>
         <label htmlFor={labelFor}>{textLabel}</label>
-        <input type={inputType} id={labelFor} onChange={handleChange} value={inputVal}/>
+        <input type={inputType} id={labelFor} onChange={handleChange} value={inputVal} />
     </div>
   )
 }

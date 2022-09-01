@@ -16,6 +16,7 @@ function App() {
     <BrowserRouter>
         <GlobalStorage>
           < Header />
+          <Banner />
         <Routes>
           <Route path='/' element={<Destaques/>} />
           <Route path='cart' element={<Cart/>} />

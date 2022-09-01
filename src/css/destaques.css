@@ -5,8 +5,8 @@
     font-weight: 700;
     border-bottom: 2px solid #ccc;
     margin: auto;
-    /* width: 100vw; */
     text-align: center;
+    padding: 10px;
 }
 
 .destCard{
@@ -22,17 +22,15 @@
     border-radius: 5px;
     background-color: #eee;
     position: relative;
-    box-shadow: rgb(146, 0, 204) 0 0 3px;
 }
 
 .destCard:last-child{
-    margin: 50px 10px;
+    margin: 50px 30px;
 }
 
 .destImg{
     width: 200px;
     height: 300px;
-    /* border: 1px solid #f00; */
     border-radius: 5px;
     object-fit: cover;
 }
@@ -45,15 +43,19 @@
 
 .destContainer{
     background-color: #222;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 250px);
-    justify-content: space-evenly;
+    display: flex;
+    flex-wrap: nowrap;
+    box-shadow: #888 0 0 5px ;
+    /* border-radius: 20px; */
+    height:600px;
+    width: 100vw;
+    overflow-x: scroll;
+    margin: auto;
 }
 
 .destPreco{
     font-weight: 700; 
     font-size: 1.2rem;
-
     position: relative;
 }
 
@@ -76,4 +78,16 @@
     top: -10px;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.destaqueContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.destaqueTexto{
+    padding: 20px 20px;
+    font-size: 1rem;
 }
