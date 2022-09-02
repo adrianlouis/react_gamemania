@@ -41,7 +41,7 @@
     font-size: 1.2rem;
 }
 
-.destContainer{
+.destContainer, .mvendidosContainer{
     background-color: #222;
     display: flex;
     flex-wrap: nowrap;
@@ -51,6 +51,12 @@
     width: 100vw;
     overflow-x: scroll;
     margin: auto;
+}
+
+.mvendidosContainer{
+    overflow: none;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .destPreco{

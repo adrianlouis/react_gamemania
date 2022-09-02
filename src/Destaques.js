@@ -104,13 +104,6 @@ const Destaques = () => {
    
   return (
     <div >
-      {/* <Banner/> */}
-      {/* <div className="destSectionTitle">
-        <span>
-        Produtos em Destaque
-        </span>
-      <p className="destaqueTexto">Confira os jogos em destaque do nosso site. Entre eles estão os melhores games de todos os tempos para o seu lazer ser prazeroso do início ao fim de sua aventura!</p>
-      </div> */}
       <SectionTitle title='Produtos em Destaque' subtitle='Confira os jogos em destaque do nosso site. Entre eles estão os melhores games de todos os tempos para o seu lazer ser prazeroso do início ao fim de sua aventura!' />
       <div className="destaqueContainer">
       
