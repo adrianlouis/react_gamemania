@@ -59,6 +59,19 @@
     flex-wrap: wrap;
 }
 
+.mvendidosTagTop{
+    color: #eee;
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: rgb(214, 0, 0);
+    border-radius: 0px 0px 0px 10px;
+    border: 1px #fff solid;
+    padding: 3px 5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 .destPreco{
     font-weight: 700; 
     font-size: 1.2rem;
@@ -75,6 +88,7 @@
     font-weight: 700;
     background-color: #f00;
     padding: 3px 6px;
+    border-radius: 0px 0px 10px 0px;
 }
 
 .destDelDesconto{

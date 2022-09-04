@@ -34,7 +34,7 @@ const MaisVendidos = () => {
 
   return (
     <div>
-      {jogosClicados.length != 0 && (
+      {jogosClicados.length !== 0 && (
         <>
           <SectionTitle
             title="Mais Vendidos"
@@ -59,6 +59,7 @@ const MaisVendidos = () => {
                       classDesconto="destDelDesconto"
                       classDescontoTag="destDescontoSpan"
                       onclick={() => listaCarrinho(jogo)}
+                      props=<span className="mvendidosTagTop">Top {index+1}</span>
                     />
                   </div>
                 ) : null

@@ -1,10 +1,11 @@
 import React from 'react'
 import Button from './Button'
 
-const Card = ({onclick, className, classImg, classDescontoTag, descontoTag, classNome, classPreco, classDesconto, desconto, src, nome, preco}) => {
+const Card = ({onclick, className, classImg, classDescontoTag, descontoTag, classNome, classPreco, classDesconto, desconto, src, nome, preco, props}) => {
 
   return (
-    <div className={className}>
+    <div className={className} >
+      {props}
       <img className={classImg} src={src} />
       <span className= {classNome}>{nome}</span>
       {desconto && <span className={classDescontoTag}>{descontoTag}</span>}
