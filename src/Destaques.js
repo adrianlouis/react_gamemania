@@ -1,6 +1,8 @@
 import React from "react";
+import Banner from "./Banner";
 import Card from "./Card";
 import css from "./css/destaques.css";
+import Galeria from "./Galeria";
 import { GlobalContext } from "./GlobalContext";
 import MaisVendidos from "./MaisVendidos";
 import SectionTitle from "./SectionTitle";
@@ -104,6 +106,7 @@ const Destaques = () => {
    
   return (
     <div >
+      <Banner />
       <SectionTitle title='Produtos em Destaque' subtitle='Confira os jogos em destaque do nosso site. Entre eles estão os melhores games de todos os tempos para o seu lazer ser prazeroso do início ao fim de sua aventura!' />
       <div className="destaqueContainer">
       
@@ -130,6 +133,9 @@ const Destaques = () => {
       
       </div>
       <MaisVendidos/>
+
+      <Galeria/>
+
     </div>
   );
 };
