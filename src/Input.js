@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Input = ({labelFor, textLabel, inputType, inputVal, handleChange}) => {
+const Input = ({labelFor, textLabel, inputType, inputVal, handleChange, placeholder, ...props}) => {
 
     // const [inputValue, setInputValue] = React.useState('')
 
@@ -13,7 +13,7 @@ const Input = ({labelFor, textLabel, inputType, inputVal, handleChange}) => {
   return (
     <div id='divInput'>
         <label htmlFor={labelFor}>{textLabel}</label>
-        <input type={inputType} id={labelFor} onChange={handleChange} value={inputVal} />
+        <input type={inputType} id={labelFor} onChange={handleChange} value={inputVal} placeholder={placeholder} {...props} />
     </div>
   )
 }

@@ -10,6 +10,7 @@ import {BrowserRouter, Routes, Route } from 'react-router-dom'
 import NotFound from './NotFound';
 import LogCad from './LogCad';
 import Register from './Register';
+import Detalhes from './Detalhes';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path='cart' element={<Cart/>} />
           <Route path='logcad' element={<LogCad/>}/>
           <Route path='register' element={<Register/>}/>
+          <Route path='detail/:id' element={<Detalhes/>} />
           {/* <Destaques/> */}
           {/* <Cart /> */}
 

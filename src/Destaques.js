@@ -6,6 +6,9 @@ import Galeria from "./Galeria";
 import { GlobalContext } from "./GlobalContext";
 import MaisVendidos from "./MaisVendidos";
 import SectionTitle from "./SectionTitle";
+import jogos from "./jogosLista";
+import { NavLink, useNavigate } from "react-router-dom";
+
 
 const Destaques = () => {
   // const jogos = [
@@ -52,6 +55,8 @@ const Destaques = () => {
   const games = React.useContext(GlobalContext)
 
   const [newArr, setNewArr] = React.useState([])
+
+  const navigate = useNavigate();
 
   function importAll(r) {
     let images = {};
@@ -102,6 +107,8 @@ const Destaques = () => {
     if (j.desconto){
       games.setResumoDesconto(games.resumoDesconto+(j.desconto*j.preco))
     }
+
+    navigate(`detail/jogo?id=${j.id}`)
    }
    
   return (

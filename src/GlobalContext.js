@@ -11,6 +11,7 @@ export const GlobalStorage = ({children}) =>{
     const [users, setUsers] = React.useState([{email:'Louis', senha:'code'}])
     const [jogos, setJogos] = React.useState([
         {
+          id: 1,
           nome: "The King of Fighters XV",
           capa: "kof.jpg",
           preco: 125,
@@ -18,24 +19,28 @@ export const GlobalStorage = ({children}) =>{
           click: 0
         },
         {
+          id: 2,
           nome: "Halo Infinite",
           capa: "haloinfinite.jpg",
           preco: 250,
           click: 0
         },
         {
+          id: 3,
           nome: "Diablo 2",
           capa: "diablo2.jpg",
           preco: 215,
           click: 0
         },
         {
+          id: 4,
           nome: "Farcry 6",
           capa: "farcry6.jpg",
           preco: 159,
           click: 0
         },
         {
+          id: 5,
             nome: "Elden Ring",
             capa: "eldenRing.jpg",
             preco: 180,
@@ -43,6 +48,7 @@ export const GlobalStorage = ({children}) =>{
             click: 0
         },
         {
+          id: 6,
             nome: "Demon Slayer",
             capa: "demonSlayer.jpg",
             preco: 430,
@@ -50,18 +56,21 @@ export const GlobalStorage = ({children}) =>{
             click: 0
         },
         {
+          id: 7,
             nome: "Horizon Zero Dawn",
             capa: "horizon.png",
             preco: 350,
             click: 0
         },
         {
+          id: 8,
           nome: "Hades",
           capa: "hades.jpg",
           preco: 200,
           click: 0
         },
         {
+          id: 9,
           nome: "Back 4 Blood",
           capa: "back4blood.jpg",
           preco: 150,

@@ -1,0 +1,38 @@
+.detalhesMainContainer{
+    display: flex;
+    justify-content: center;
+    color: #eee;
+}
+
+.detalhesLeft{
+    /* border: 1px solid red; */
+    font-size: 1.2rem;
+    width: 65%;
+    padding: 50px;
+}
+
+.detalhesRight{
+    /* border: 1px solid blue; */
+    width: 35%;
+    padding: 50px;
+}
+.detalhesRight > *{
+    margin: 20px 0;
+    
+}
+.detalhesRight input{
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    margin: 0;
+}
+
+.detalhesNomeProduto{
+    /* background-color: white; */
+    font-size: 1.3rem;
+}
+
+.detalhesCapaPequena{
+    width: 300px;
+    height: 500px;
+    object-fit: cover;
+}
