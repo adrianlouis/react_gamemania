@@ -47,6 +47,11 @@
         width: 100%;
         border-top: 3px solid #ddd;
         padding-top: 2px;
+        height: 50px;
+    }
+
+    .galeriaContainerMiniaturas img{
+        object-fit: cover;
     }
 
     .galeriaContainerGrande{
