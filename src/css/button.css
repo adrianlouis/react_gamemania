@@ -16,7 +16,7 @@
     box-shadow: rgb(146, 0, 204) 0 0 8px;
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 412px) {
     .buttonBuy{
         height: 25px;
         
