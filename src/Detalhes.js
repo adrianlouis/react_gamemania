@@ -23,10 +23,9 @@ const Detalhes = () => {
       return regex.test(code)}
 
     function cep({target}){
-        if(target.value.length <= 8){
-          setCepVal(target.value)
-        }
+      setCepVal(target.value)   
     }
+  
 
     async function consultarCep(){
       const response = await fetch('http://viacep.com.br/ws/'+cepVal+'/json')
@@ -79,7 +78,7 @@ const Detalhes = () => {
             
             </select>
 
-            <Input inputType='number' textLabel='Cep: ' placeholder='00000-000' handleChange={cep} inputVal={cepVal} onBlur={teste} />
+            <Input inputType='text' textLabel='Cep: ' placeholder='apenas números' maxLength={8} handleChange={cep} inputVal={cepVal} onBlur={teste} />
             {erroCep && <strong><span style={{color: '#d00'}}>{erroCep}</span></strong>}
             {dadosCep && <>
               <p>{dadosCep.logradouro}</p>

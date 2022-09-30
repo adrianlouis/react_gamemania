@@ -95,4 +95,25 @@ a{
     text-decoration: none;
 }
 
+@media screen and (max-width: 360px) {
+
+    header{
+        border: none;
+        padding: 0;
+        height: 40px;
+    }
+
+    header > i:nth-child(1) {
+        display: none;
+    }
+
+    .headerLogo{
+        font-size: 1.4rem;
+        text-shadow: none;
+        margin-left: 10px;
+
+    }
+
+    
+}
 

@@ -15,3 +15,10 @@
     border: 1px solid #aaa;
     box-shadow: rgb(146, 0, 204) 0 0 8px;
 }
+
+@media screen and (max-width: 360px) {
+    .buttonBuy{
+        height: 25px;
+        
+    }
+}

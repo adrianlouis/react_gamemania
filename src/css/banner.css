@@ -26,3 +26,9 @@
     border: 1px solid #fff;
     margin: 0 5px;
 }
+
+@media screen and (max-width: 360px) {
+    .bannerCarrossel{
+        display: none;
+    }
+}

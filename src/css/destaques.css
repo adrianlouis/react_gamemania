@@ -111,3 +111,63 @@
     padding: 20px 20px;
     font-size: 1rem;
 }
+
+@media screen and (max-width: 360px) {
+    .destCard{
+        width: 120px;
+        height: 320px;
+        padding: 0px 10px;
+        justify-content: start;
+        border-radius: 8px;
+    }
+
+    .destCard:last-child {
+        margin: 10px ;
+    }
+
+    .destContainer{
+        height: unset;
+    }
+
+    .destImg, .destDescontoSpan{
+        margin-top: 3px;
+    }
+
+    .destDescontoSpan{
+        border-radius: 5px 0 10px 0;
+        margin-left: 2px;
+    }
+
+    .destImg{
+        width: 135px;
+        height: 200px;
+        
+    }
+
+    .destNome{
+        font-size: .9rem;
+        margin-top: 2px;
+        /* border: 1px solid red; */
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .destPreco{
+        font-size: .9rem;
+        margin-top: 17px;
+        margin-bottom: 5px;
+    }
+    .destDelDesconto{
+        font-size: .7rem;
+        top: -5px;
+    }
+    .destSectionTitle{
+        font-size: 1.2rem;
+    }
+    .destaqueTexto{
+        font-size: .8rem;
+    }
+    
+}
