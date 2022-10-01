@@ -30,9 +30,9 @@ const Header = () => {
         </>
         ) : (
           <>
-          <span><strong>{context.logado.email}</strong></span>
+          <span id='headerUsuarioLogado'><strong>{context.logado.email}</strong></span>
           <Link to='/' onClick={()=>context.setLogado(null)}><span><i className="fa-solid fa-arrow-right-from-bracket" >
-          </i> Sair</span></Link>
+          </i> {width <= 412 ? '' : 'Sair'}</span></Link>
           </>
         )}
         <Link to='cart'>

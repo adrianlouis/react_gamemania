@@ -9,6 +9,7 @@ h1{
     align-items: center;
     color: #dedede;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 #divInput > label {

@@ -7,7 +7,7 @@ import { GlobalContext } from "./GlobalContext";
 import MaisVendidos from "./MaisVendidos";
 import SectionTitle from "./SectionTitle";
 import jogos from "./jogosLista";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 
 const Destaques = () => {
