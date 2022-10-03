@@ -132,9 +132,9 @@
         flex-direction: column;
         overflow: hidden;
     }
-    .imgModal img{
+    /* .imgModal img{
         width: 100%;
-    }
+    } */
     .modalSuperior{
         width: 90%;
         height: 100%;
@@ -161,10 +161,14 @@
     }
 
     .modalInferiorImg{
-        width: 90px;
+        width: 30%;
         margin: 0 15px;
         opacity: .7;
         cursor: pointer;
+    }
+
+    .inferiorImagemGrande{
+        width: 100%;
     }
  
     #iconeFecharModal{
@@ -182,6 +186,7 @@
         transform: scale(1.2);
         opacity: 1;
         cursor: pointer;
+        width: 30%;
     }
 
     .dadosCep{

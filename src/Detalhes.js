@@ -152,7 +152,7 @@ const Detalhes = () => {
                 className="fa-solid fa-xmark"
                 onClick={() => setModal(false)}
               ></i>
-              <img src={jogos[item].screens[modalMiniatura]}></img>
+              <img className="inferiorImagemGrande" src={jogos[item].screens[modalMiniatura]}></img>
             </div>
 
             <div className="modalInferior">
