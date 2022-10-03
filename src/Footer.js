@@ -42,9 +42,9 @@ const Footer = () => {
                 <p>email: informacao@gamemania.com.br</p>
 
                 <div className='footerRedesSociaisIcones'>
-                    <a href='https://www.facebook.com'><i class="fa-brands fa-square-facebook"  ></i></a>
-                    <a href='https://www.twitter.com'><i class="fa-brands fa-square-twitter"></i></a>
-                    <a href='https://www.instagram.com'><i class="fa-brands fa-square-instagram"></i></a>
+                    <a href='https://www.facebook.com'><i className="fa-brands fa-square-facebook"  ></i></a>
+                    <a href='https://www.twitter.com'><i className="fa-brands fa-square-twitter"></i></a>
+                    <a href='https://www.instagram.com'><i className="fa-brands fa-square-instagram"></i></a>
                 </div>
             </div>
         </div>

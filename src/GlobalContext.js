@@ -30,6 +30,7 @@ export const GlobalStorage = ({children}) =>{
           nome: "Diablo 2",
           capa: "diablo2.jpg",
           preco: 215,
+          descricao: "Jogao de RPG",
           click: 0
         },
         {
