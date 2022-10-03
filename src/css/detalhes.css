@@ -150,6 +150,7 @@
         text-align: center;
         justify-content: space-between;
         overflow: hidden;
+        border: 1px solid red;
     }
     .modalInferior span{
         padding: 10px 5px;
@@ -161,7 +162,7 @@
     }
 
     .modalInferiorImg{
-        width: 30%;
+        width: 20%;
         margin: 0 15px;
         opacity: .7;
         cursor: pointer;
@@ -183,10 +184,10 @@
         transform: scale(1.2);
     }
     .modalMiniaturaMeio{
-        transform: scale(1.2);
+        /* transform: scale(1.2); */
         opacity: 1;
         cursor: pointer;
-        width: 30%;
+        width: 25%;
     }
 
     .dadosCep{
