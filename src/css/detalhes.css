@@ -130,6 +130,7 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        overflow: hidden;
     }
     .imgModal img{
         width: 100%;
@@ -142,12 +143,13 @@
         align-items: center;
     }
     .modalInferior{
-        width: 90%;
+        width: 95vw;
         height: 80px;
         display: flex;
         align-items: center;
         text-align: center;
         justify-content: space-between;
+        overflow: hidden;
     }
     .modalInferior span{
         padding: 10px 5px;
@@ -179,7 +181,6 @@
     .modalMiniaturaMeio{
         transform: scale(1.2);
         opacity: 1;
-        margin: 5x;
         cursor: pointer;
     }
 
