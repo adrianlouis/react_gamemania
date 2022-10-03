@@ -150,7 +150,6 @@
         text-align: center;
         justify-content: space-between;
         overflow: hidden;
-        border: 1px solid red;
     }
     .modalInferior span{
         padding: 10px 5px;
