@@ -68,19 +68,73 @@ const Detalhes = () => {
 
   console.log(jogos[item].screens[0]);
 
+  // const bg = document.querySelector('.detalhesSuperior').style.backgroundImage= `url(${jogos[item].capa})`
+
   return (
     <div className="detalhesMainContainer">
-      <div className="detalhesSuperior">
-        <img className="detalhesCapaPequena" src={jogos[item].capa} />
-        <div className="detalhesRight">
-          <strong>
-            <span className="detalhesNomeProduto">{jogos[item].nome}</span>
-            {/* <br /> */}
-            <br />
-            <p className="detalhesNomeProduto">
-              {jogoParseReal(jogos[item].preco, jogos[item].desconto)}
-            </p>
-          </strong>
+      <div
+        className="detalhesSuperior"
+        style={{ backgroundImage: `url(${jogos[item].capa})` }}
+      >
+        <div className="detalhesDescricao">
+          {<span>{jogos[item].descricao}</span>}
+        </div>
+      </div>
+
+      <div className="contScreenshots">
+        {jogos[item].screens.map((item, index) => {
+          return (
+            <div key={index}>
+              <img
+                onClick={() => {
+                  setModal(true);
+                  setModalMiniatura(index);
+                }}
+                src={item}
+              ></img>
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="nomePreco">
+        <span>{jogos[item].nome}</span>
+        <p>{jogoParseReal(jogos[item].preco, jogos[item].desconto)}</p>
+      </div>
+
+      <div className="detalhesJogo">
+        
+        <div className="plataformas">
+          <div className="divPlataforma">
+            <i className="fa-brands fa-xbox"></i>
+          </div>
+
+          <div className="divPlataforma">
+            <i class="fa-brands fa-playstation"></i>
+          </div>
+
+          <div className="divPlataforma">
+            <i class="fa-brands fa-windows"></i>
+          </div>
+        
+        </div>
+
+        <div className="midias">
+
+
+        <div className="divMidias">
+          <i class="fa-solid fa-compact-disc"></i>
+        </div>
+
+        <div className="divMidias">
+          <i class="fa-solid fa-cloud-arrow-down"></i>
+        </div>
+
+        </div>
+      </div>
+
+      {/* <div className="detalhesRight">
+        
 
           <div className="contDetalhesSelect">
             <label htmlFor="midia">Tipo da Mídia: </label>
@@ -122,26 +176,7 @@ const Detalhes = () => {
               </>
             )}
           </div>
-        </div>
-      </div>
-
-      <div className="detalhesLeft">{<span>{jogos[item].descricao}</span>}</div>
-
-      <div className="contScreenshots">
-        {jogos[item].screens.map((item, index) => {
-          return (
-            <div key={index}>
-              <img
-                onClick={() => {
-                  setModal(true);
-                  setModalMiniatura(index);
-                }}
-                src={item}
-              ></img>
-            </div>
-          );
-        })}
-      </div>
+        </div> */}
 
       {modal && (
         <>
@@ -152,7 +187,10 @@ const Detalhes = () => {
                 className="fa-solid fa-xmark"
                 onClick={() => setModal(false)}
               ></i>
-              <img className="inferiorImagemGrande" src={jogos[item].screens[modalMiniatura]}></img>
+              <img
+                className="inferiorImagemGrande"
+                src={jogos[item].screens[modalMiniatura]}
+              ></img>
             </div>
 
             <div className="modalInferior">

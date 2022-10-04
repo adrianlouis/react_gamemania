@@ -39,21 +39,103 @@
 
 @media screen and (max-width: 412px){
 
-    .detalhesSuperior{
-        padding: 15px 0;
+    .detalhesMainContainer{
+        overflow: hidden;
         width: 100vw;
-        height: 300px;
         display: flex;
-        justify-content: center;
-        align-items: flex-start;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        min-height: 100vh;
+
+        /* border: 1px solid red; */
     }
 
-    .detalhesCapaPequena{
-        width: 150px;
-        height: 100%;
-        width: 100%;
-        object-fit: contain;
+    .detalhesSuperior{
+        /* padding: 15px 0; */
+        width: 100vw;
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        /* background-image: ur; */
+        overflow: hidden;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
     }
+
+    .contScreenshots{
+        width: 100vw;
+        overflow: hidden;
+        overflow-x: scroll;
+        grid-area: screen;
+        display: flex;
+    }
+
+    .nomePreco{
+        /* border: 1px solid green; */
+        width: 100%;
+        padding: 10px 0;
+        display: flex;
+        justify-content: space-evenly;
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+
+    .detalhesJogo{
+        /* border: 1px solid red; */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .plataformas{
+        /* border: 1px solid yellow; */
+        background-color: #222;
+        border-radius: 10px;
+        margin: 20px;
+        /* height: 150px; */
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .midias{
+        /* border: 1px solid blue; */
+        background-color: #222;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 40%;
+        margin: 20px;
+    }
+    .divPlataforma, .divMidias{
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        float: left;
+    }
+    .divPlataforma:nth-child(1):hover{
+        color: #0e7a0d;
+        background-color: #dedede;
+    }
+    .divPlataforma:nth-child(2):hover{
+        color: #006fcd;
+        background-color: #dedede;
+    }
+    .divPlataforma:nth-child(3):hover{
+        color: #00a1f1 ;
+        background-color: #dedede;
+    }
+
     .detalhesRight{
         /* width: unset; */
         padding: unset;
@@ -65,22 +147,20 @@
         justify-content: start;
         flex-direction: column;
     }
-    .detalhesLeft{
-        width: 90%;
+    .detalhesDescricao{
+        width: 100%;
         font-size: .8rem;
         padding: 10px 10px;
-
-    }
-
-    .detalhesMainContainer{
-        overflow: hidden;
-        max-width: 100vw;
+        min-height: 150px;
+        background-image: linear-gradient(to top, #111, #111c, #1117, #1113, #1110);
         display: flex;
-        flex-direction: column;
-        justify-content: start;
-        align-items: center;
-        min-height: 100vh;
+        justify-content: end;
+        align-items: flex-end;
+        /* border: 1px solid greenyellow; */
+
     }
+
+  
 
     .detalhesNomeProduto{
         font-size: 1rem;
@@ -107,13 +187,7 @@
         width: 70%;
     }
 
-    .contScreenshots{
-        width: 100vw;
-        overflow: hidden;
-        overflow-x: scroll;
-        grid-area: screen;
-        display: flex;
-    }
+    
 
     .contScreenshots img{
         width: 150px;
