@@ -88,32 +88,52 @@
         /* border: 1px solid red; */
         width: 100%;
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
         align-items: center;
     }
 
     .plataformas{
+        /* border: 1px solid red; */
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .escolhaDePlataformas, .escolhaDeMidia{
         /* border: 1px solid yellow; */
-        background-color: #222;
+        /* background-color: #222; */
         border-radius: 10px;
-        margin: 20px;
-        /* height: 150px; */
-        width: 50%;
+        margin: 10px 0;
         display: flex;
+        width: 100%;
         justify-content: space-between;
     }
 
+    .escolhaDePlataformas{
+        width: 80%;
+        /* border: 1px solid yellow; */
+    }
     .midias{
         /* border: 1px solid blue; */
-        background-color: #222;
+        /* background-color: #222; */
         border-radius: 10px;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         width: 40%;
         margin: 20px;
     }
+
+    .escolhaDeMidia{
+        /* border: 1px solid aqua; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
     .divPlataforma, .divMidias{
+        /* border: 1px solid blue; */
         width: 50px;
         height: 50px;
         border-radius: 10px;
@@ -122,18 +142,19 @@
         align-items: center;
         font-size: 2rem;
         float: left;
+        color: #555;
     }
     .divPlataforma:nth-child(1):hover{
         color: #0e7a0d;
-        background-color: #dedede;
+        /* background-color: #dedede; */
     }
     .divPlataforma:nth-child(2):hover{
         color: #006fcd;
-        background-color: #dedede;
+        /* background-color: #dedede; */
     }
     .divPlataforma:nth-child(3):hover{
         color: #00a1f1 ;
-        background-color: #dedede;
+        /* background-color: #dedede; */
     }
 
     .detalhesRight{
@@ -149,13 +170,14 @@
     }
     .detalhesDescricao{
         width: 100%;
-        font-size: .8rem;
-        padding: 10px 10px;
+        font-size: 1rem;
+        padding: 50px 10px 10px;
         min-height: 150px;
-        background-image: linear-gradient(to top, #111, #111c, #1117, #1113, #1110);
+        background-image: linear-gradient(to top, #111, #111d, #111b, #1119, #1110);
         display: flex;
         justify-content: end;
         align-items: flex-end;
+        color: #FFF;
         /* border: 1px solid greenyellow; */
 
     }

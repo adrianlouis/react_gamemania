@@ -1,24 +1,29 @@
 .buttonBuy{
     width: 80%;
     height: 30px;
-    background-color: rgb(146, 0, 204);
-    background-image: linear-gradient(to bottom right, rgb(173, 0, 241), rgb(78, 0, 109));
     color: #ddd;
     font-weight: 700;
-    box-shadow: rgb(146, 0, 204) 0 0 10px;
     border-radius: 7px;
     border: 1px solid transparent;
     cursor: pointer;
 }
 
-.buttonBuy:active{
-    border: 1px solid #aaa;
-    box-shadow: rgb(146, 0, 204) 0 0 8px;
+.cardBtns{
+    /* border: 1px solid blue; */
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 @media screen and (max-width: 412px) {
     .buttonBuy{
-        height: 25px;
-        
+        border-radius: 50%;
+        height: unset;
+        width: unset;
+        box-shadow: none;
+        background-color: transparent;
+        background-image: none;
+        color: #444;
+        font-size: 1.2rem;
     }
 }

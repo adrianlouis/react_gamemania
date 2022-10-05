@@ -18,6 +18,8 @@ const Detalhes = () => {
   const [dadosCep, setDadosCep] = React.useState(null);
   const [modal, setModal] = React.useState(false);
   const [modalMiniatura, setModalMiniatura] = React.useState(2);
+  const [plataforma, setPlataforma] = React.useState(null);
+  const [midia, setMidia] = React.useState(null)
 
   const cepBr = (code) => {
     const regex = /[0-9]{5}-?[\d]{3}/;
@@ -103,33 +105,74 @@ const Detalhes = () => {
       </div>
 
       <div className="detalhesJogo">
-        
         <div className="plataformas">
-          <div className="divPlataforma">
-            <i className="fa-brands fa-xbox"></i>
-          </div>
 
-          <div className="divPlataforma">
-            <i class="fa-brands fa-playstation"></i>
-          </div>
+          <span>
+            Plataforma: {plataforma}
+          </span>
 
-          <div className="divPlataforma">
-            <i class="fa-brands fa-windows"></i>
+          <div className="escolhaDePlataformas">
+            <div
+              className="divPlataforma"
+              style={{
+                color: plataforma === "Xbox" ? "#0e7a0d" : null,
+                // backgroundColor: plataforma === "xbox" ? "#dedede" : null,
+              }}
+              onClick={() => setPlataforma("Xbox")}
+            >
+              <i className="fa-brands fa-xbox"></i>
+            </div>
+
+            <div
+              className="divPlataforma"
+              style={{
+                color: plataforma === "Playstation" ? "#006fcd" : null,
+                // backgroundColor: plataforma === "psn" ? "#dedede" : null,
+              }}
+              onClick={() => setPlataforma("Playstation")}
+            >
+              <i class="fa-brands fa-playstation"></i>
+            </div>
+
+            <div
+              className="divPlataforma"
+              style={{
+                color: plataforma === "PC" ? "#00a1f1" : null,
+                // backgroundColor: plataforma === "ms" ? "#dedede" : null,
+              }}
+              onClick={() => setPlataforma("PC")}
+            >
+              <i class="fa-brands fa-windows"></i>
+            </div>
           </div>
-        
         </div>
 
         <div className="midias">
 
+          <div className="plataformas">
 
-        <div className="divMidias">
-          <i class="fa-solid fa-compact-disc"></i>
-        </div>
+            <span>
+              Mídia: {midia}
+            </span>
 
-        <div className="divMidias">
-          <i class="fa-solid fa-cloud-arrow-down"></i>
-        </div>
+              <div className="escolhaDeMidia">
 
+                <div className="divMidias" onClick={() => setMidia("Física")} >
+                 <i class="fa-solid fa-compact-disc" style={{
+                color: midia === "Física" ? "#dedede" : null,
+                // backgroundColor: plataforma === "psn" ? "#dedede" : null,
+              }}></i>
+                </div>
+
+                <div className="divMidias" onClick={() => setMidia("Digital")}>
+                  <i class="fa-solid fa-cloud-arrow-down" style={{
+                color: midia === "Digital" ? "#dedede" : null,
+                // backgroundColor: plataforma === "psn" ? "#dedede" : null,
+              }} ></i>
+                </div>
+
+              </div>
+          </div>
         </div>
       </div>
 

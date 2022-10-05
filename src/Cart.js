@@ -1,10 +1,12 @@
 import React from 'react'
 import css from './css/cart.css'
 import { GlobalContext } from './GlobalContext';
+import Input from './Input';
 
 const Cart = () => {
 
     const dados = React.useContext(GlobalContext);
+    const [endereco, setEndereco] = React.useState(null)
 
     function calcularPreco(preco, desconto){
 
@@ -30,17 +32,53 @@ const Cart = () => {
       }
     }
 
+   
+
+
+
+
+
   return (
     <div id='cart'>
       <p className='minhacesta'>Minha cesta</p>
 
+            <div className='cartEndereco'>
+                <Input inputType='text' labelFor='cep'  textLabel={endereco ? 'Endereço: ' : 'Informe seu CEP: '} ></Input>
+            </div>
+
       <div className='cartContainer'>
 
-        <section className='cartWishes'>
+        {dados.wishlist.map((item)=>(
+          <div className='cartPedido'>
+          <div className='pedidoImg'>
+            <img id='capaDoPedido' src={item.capa}></img>
+          </div>
+      
+          <div className='pedidoDados'>
+            <span>{item.nome}</span>
+            <span>Preço: {formatarParaReal(item.preco)}</span>
+            <span>Desconto: {formatarParaReal((item. preco * item.desconto))}</span>
+            <span>Preço Final: {calcularPreco(item.preco, item.desconto)}</span>
+          </div>
+        </div>
+        ))}
+      
+        {/* <div className='cartPedido'>
+          <div className='pedidoImg'>
+            <img id='capaDoPedido' src={dados.wishlist[0].capa}></img>
+          </div>
+      
+          <div className='pedidoDados'>
+            <span>{dados.wishlist[0].nome}</span>
+            <span>Preço: {formatarParaReal(dados.wishlist[0].preco)}</span>
+            <span>Desconto: {formatarParaReal(dados.wishlist[0].desconto)}</span>
+            <span>Preço Final: {calcularPreco(dados.wishlist[0].preco, dados.wishlist[0].desconto)}</span>
+          </div>
+        </div> */}
+
+
+        {/* <section className='cartWishes'>
             
-            <div className='cartEndereco'>
-                <p>Informe seu Endereço</p>
-            </div>
 
             <div className='cartPedidosContainer'>
 
@@ -55,7 +93,7 @@ const Cart = () => {
             }
             
             {dados.wishlist.length === 0? (
-              <div className='cartPedidos' style={{padding: '5px 30px'}}>Não há produtos no carrinho!</div>
+              <div id='semPedidos' className='cartPedidos' >Não há produtos no carrinho!</div>
               ) : (
                 dados.wishlist.map((pedido, index)=>(
                   <div key={pedido.nome+index} className='cartPedidos'>
@@ -69,7 +107,7 @@ const Cart = () => {
                   )}
 
                   </div>
-        </section>
+        </section> */}
 
         {dados.wishlist.length !== 0 &&
         <section className='cartResume'>
