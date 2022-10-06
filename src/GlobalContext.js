@@ -8,7 +8,7 @@ export const GlobalStorage = ({children}) =>{
     const [preco, setPreco] = React.useState(0)
     const [resumoDesconto, setResumoDesconto] = React.useState(0)
     const [logado, setLogado] = React.useState(null)
-    const [users, setUsers] = React.useState([{email:'Louis', senha:'code'}])
+    const [users, setUsers] = React.useState([{email:'Louis', senha:'krad'}])
     const [jogos, setJogos] = React.useState([
         {
           id: 1,

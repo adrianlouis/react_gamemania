@@ -1,5 +1,5 @@
 h1{
-    color: #dedede;
+    color: #333;
     margin: 20px;
 }
 
@@ -7,30 +7,139 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #dedede;
+    /* color: #dedede; */
     flex-direction: column;
     min-height: 100vh;
+    /* border: 1px solid red; */
 }
 
-#divInput > label {
+.logModal{
+    border: 1px solid #aaa;
+    background-color: rgb(48, 48, 48);
+    width: 310px;
+    min-height: 370px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 20px;
+    /* align-items: center; */
+}
+#loginTitle {
+    
+    font-size: 2rem;
+    color: #ffd0d0;
+    margin: 30px 50px;
+
+    animation-name: neon;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    transition: none;
+    text-shadow: #c00 0 0 10px, #c00 0 0 15px, #c00 0 0 30px;
+}
+
+@keyframes neon {
+    0% {color: #ffd0d0; text-shadow: #c00 0 0 10px, #c00 0 0 15px, #c00 0 0 30px;}
+    13% {color: #aaaaaa; text-shadow: none; }
+    24% {color: #ffd0d0; text-shadow: #c00 0 0 10px, #c00 0 0 15px, #c00 0 0 30px;}
+    30% {color: #aaaaaa; text-shadow: none; }
+    31% {color: #ffd0d0; text-shadow: #c00 0 0 10px, #c00 0 0 15px, #c00 0 0 30px;}
+    49% {color: #aaaaaa; text-shadow: none; }
+    50% {color: #ffd0d0; text-shadow: #c00 0 0 10px, #c00 0 0 15px, #c00 0 0 30px;}
+    65% {color: #aaaaaa; text-shadow: none;}
+    67% {color: #ffd0d0; text-shadow: #c00 0 0 10px, #c00 0 0 15px, #c00 0 0 30px;}
+}
+
+#loginTitle:before{
+    content: '';
+    width: 10px;
+    height: 3rem;
+    background-color: #c00;
+    display: block;
+    float: inline-start;
+    margin-right: 20px;
+}
+
+#inputEmail{
+    color: #c00;
+    
+}
+.logModal label{
+    font-size: 2rem;
+    color: #c00;
+    transform: translate(10px, 29px);
+    font-size: 1.2rem;
+    margin: 5px 0;
+    display: flex;
+    width: 80px;
+    flex-direction: column;
+    transition: .5s;
+    /* border: 2px solid green; */
+    
+}
+
+.containerInputs{
+    /* border: 1px solid purple; */
+    position: relative;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    margin: 0 auto;
+}
+
+a{
+    font-size: .9rem;
+}
+
+
+
+
+.containerInputs span{
+    color: #dedede;
+    background-color: red;
+    border: 2px solid red;
+    font-weight: 700;
+    text-align: center;
+    padding: 5px ;
+    width: 80%;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.loginAlert{
+    /* position: absolute; */
+    margin: 10px auto;
+    color: #dedede;
+    bottom: 20px;
+    /* left: 50%; */
+    /* transform: translate(-50%); */
+    /* border: 1px solid #c00; */
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+/* #divInput > label {
     font-size: 1.2rem;
     margin: 5px 0px;
-}
-
-#divInput input {
-    border-radius: 0;
-    width: 200px;
-}
-
-.logcad > #divInput{
     display: flex;
-    /* justify-content: center; */
+    flex-direction: column;
+    color: #dedede;
+} */
+
+
+
+/* .logcad > #divInput{
+    display: flex;
     align-items: flex-start;
     flex-direction: column;
     margin: 10px 0;
-}
+} */
 
-#logcadBtn{
+/* #logcadBtn{
     width: 210px;
     margin: 10px;
     height: 30px;
@@ -48,4 +157,4 @@ h1{
 #aviso{
     font-size: 1.3rem;
     color: #c00
-}
+} */
