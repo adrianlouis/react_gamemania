@@ -7,6 +7,7 @@ const Cart = () => {
 
     const dados = React.useContext(GlobalContext);
     const [endereco, setEndereco] = React.useState(null)
+    const [cartPrecoTotal, setCartPrecoTotal] = React.useState(null)
 
     function calcularPreco(preco, desconto){
 
@@ -36,11 +37,22 @@ const Cart = () => {
 
 
 
-
+    function mostrarResumoCesta(el){
+      el.style.transform= 'rotate(180deg)'
+    }
 
   return (
     <div id='cart'>
-      <p className='minhacesta'>Minha cesta</p>
+      <div className='minhacesta'>
+      <p >Minha cesta{cartPrecoTotal && ': '+cartPrecoTotal}</p>
+      <div className='minhacestaDetalhesModal'>
+        <span>{}</span>
+      </div>
+      <div className='iconeDetalhesMinhaCesta'>
+      <i id='iconeDetalhesMinhaCesta' className="fa-solid fa-circle-arrow-down" onClick={({target})=>mostrarResumoCesta(target)}></i>
+      </div>
+
+      </div>
 
             <div className='cartEndereco'>
                 <Input inputType='text' labelFor='cep'  textLabel={endereco ? 'Endereço: ' : 'Informe seu CEP: '} ></Input>

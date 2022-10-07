@@ -57,7 +57,7 @@ h1{
     height: 3rem;
     background-color: #c00;
     display: block;
-    float: inline-start;
+    float: left;
     margin-right: 20px;
 }
 

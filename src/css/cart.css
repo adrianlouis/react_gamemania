@@ -12,16 +12,35 @@
     font-size: 1.5rem;
     box-shadow: #444 0 0 5px;
     margin: 15px;
+    position: relative;
+}
+
+.iconeDetalhesMinhaCesta{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 32px;
+    background-color: #111;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
 }
 
 .cartContainer{
-    /* border: 1px solid blue; */
-    /* display: grid;
-    grid-template-areas: 
-    'endereco endereco endereco endereco resumo'
-    'pedido pedido pedido pedido resumo'; */
+    transform: ro;
     display: flex;
     justify-content: space-between;
+}
+
+.minhacestaDetalhesModal{
+    height: 0px;
+    border: 1px solid red;
+    margin-top: 10px;
+    visibility: hidden;
+    display: none;
 }
 
 .cartEndereco{
