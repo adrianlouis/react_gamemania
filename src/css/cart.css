@@ -112,7 +112,7 @@
     /* border: 1px solid red; */
 }
 
-@media screen and (min-width: 412px){
+@media screen and (max-width: 412px){
     .minhacesta{
         font-size: 1rem;
         padding: 10px;
