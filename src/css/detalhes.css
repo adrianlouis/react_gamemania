@@ -219,7 +219,7 @@
         width: 100vw;
         height: 100vh;
         background-color: #222;
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         display: flex;
@@ -246,6 +246,7 @@
         text-align: center;
         justify-content: space-between;
         overflow: hidden;
+        margin-bottom: 50px;
     }
     .modalInferior span{
         padding: 10px 5px;

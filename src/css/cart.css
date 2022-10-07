@@ -152,6 +152,11 @@
         display: none;
     }
 
+    .pedidoImg{
+        height: 135px;
+        width: 90px;
+    }
+
     #capaDoPedido{
         height: 135px;
         width: 90px;
