@@ -7,16 +7,16 @@ const Cart = () => {
 
     const dados = React.useContext(GlobalContext);
     const [endereco, setEndereco] = React.useState(null)
-    const [cartPrecoTotal, setCartPrecoTotal] = React.useState(null)
+    const [itemQuantidade, setItemQuantidade] = React.useState(1)
+    const [precototal, setPrecototal] = React.useState(0)
 
     function calcularPreco(preco, desconto){
 
       if (desconto){
-        return (preco - (preco * desconto)).toLocaleString('pt-Br', {style: 'currency', currency: 'BRL'})
+        return ((preco - (preco * desconto))*itemQuantidade).toLocaleString('pt-Br', {style: 'currency', currency: 'BRL'})
       }else{
-        return (preco).toLocaleString('pt-Br', {style: 'currency', currency: 'BRL'})
+        return ((preco)*itemQuantidade).toLocaleString('pt-Br', {style: 'currency', currency: 'BRL'})
       }
-
     }
 
     function formatarParaReal(valor){
@@ -33,18 +33,14 @@ const Cart = () => {
       }
     }
 
-   
-
-
-
     function mostrarResumoCesta(el){
       el.style.transform= 'rotate(180deg)'
     }
 
-  return (
+    return (
     <div id='cart'>
       <div className='minhacesta'>
-      <p >Minha cesta{cartPrecoTotal && ': '+cartPrecoTotal}</p>
+      <p >Minha cesta: {dados.wishlist.length > 0 && dados.wishlist.length+' produtos.'} Valor total: {}</p>
       <div className='minhacestaDetalhesModal'>
         <span>{}</span>
       </div>
@@ -53,7 +49,6 @@ const Cart = () => {
       </div>
 
       </div>
-
             <div className='cartEndereco'>
                 <Input inputType='text' labelFor='cep'  textLabel={endereco ? 'Endereço: ' : 'Informe seu CEP: '} ></Input>
             </div>
@@ -61,17 +56,27 @@ const Cart = () => {
       <div className='cartContainer'>
 
         {dados.wishlist.map((item)=>(
-          <div className='cartPedido'>
+          <div className='cartPedido' key={item.id}>
           <div className='pedidoImg'>
             <img id='capaDoPedido' src={item.capa}></img>
           </div>
       
           <div className='pedidoDados'>
             <span>{item.nome}</span>
-            <span>Preço: {formatarParaReal(item.preco)}</span>
-            <span>Desconto: {formatarParaReal((item. preco * item.desconto))}</span>
+            <span>Preço: {formatarParaReal(item.preco * itemQuantidade)}</span>
+            <span>Desconto: {formatarParaReal((item.preco * item.desconto) * itemQuantidade)}</span>
             <span>Preço Final: {calcularPreco(item.preco, item.desconto)}</span>
           </div>
+
+          <div className='pedidoDadosIcones'>
+            <div className="pedidoQtd">
+          <i className="fa-solid fa-circle-plus" onClick={()=>setItemQuantidade(itemQuantidade + 1)} ></i>
+           {' '+itemQuantidade+' '}
+          <i className="fa-solid fa-circle-minus" onClick={()=>itemQuantidade !== 0 ? setItemQuantidade(itemQuantidade - 1): null} ></i>
+            </div>
+          <i className="fa-solid fa-trash-can" onClick={()=>remover(item)}></i>
+          </div>
+
         </div>
         ))}
       
@@ -89,7 +94,7 @@ const Cart = () => {
         </div> */}
 
 
-        {/* <section className='cartWishes'>
+        <section className='cartWishes'>
             
 
             <div className='cartPedidosContainer'>
@@ -119,7 +124,7 @@ const Cart = () => {
                   )}
 
                   </div>
-        </section> */}
+        </section>
 
         {dados.wishlist.length !== 0 &&
         <section className='cartResume'>

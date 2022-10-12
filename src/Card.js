@@ -22,7 +22,7 @@ const [like, setLike] = React.useState(false)
       {/* <Button nome={!cartList ? <i className="fa-solid fa-cart-arrow-down"></i> : <i  style={{color:'rgb(146, 0, 204)'}} class="fa-solid fa-cart-shopping"></i>} onclick={clickCart} /> */}
       {/* ()=>cartList? setCartList(false) : setCartList(true) */}
 
-      <Button nome={!like ? <i className="fa-regular fa-heart"></i> : <i style={{color:'#d00'}}  class="fa-solid fa-heart"></i>} onclick={()=>like? setLike(false) : setLike(true)} />
+      <Button nome={!like ? <i className="fa-regular fa-heart"></i> : <i style={{color:'#d00'}}  className="fa-solid fa-heart"></i>} onclick={()=>like? setLike(false) : setLike(true)} />
       </div>
     </div>
   )

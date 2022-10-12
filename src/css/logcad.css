@@ -18,7 +18,7 @@ h1{
     /* border: 1px solid #aaa; */
     background-color: rgb(48, 48, 48);
     width: 90%;
-    min-height: 370px;
+    min-height: 100vh;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -122,6 +122,69 @@ a{
     text-align: center;
     font-size: 1.2rem;
 }
+
+.validacaoRegistro{
+    width: 90vw;
+    /* height: 170px; */
+    /* border: 1px solid green; */
+
+    margin: 10px;
+
+    display: none;
+    justify-content: start;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+.validacaoRegistro span{
+    color: red;
+    background-color: transparent;
+    border: none;
+    font-size: .8rem;
+    margin: 5px 0;
+    padding: unset;
+    width: 100%;
+    /* text-align: left; */
+}
+
+.iconeDosInputs{
+    transition: all .3s;
+}
+
+
+.containerAlternarLoginRegistro{
+    display: flex;
+    height: 20px;
+    width: 40px;
+    border: 1px solid red;
+    border-radius: 25px;
+    /* justify-content: start; */
+    align-items: center;
+    transition: all .3s;
+    position: relative;
+    box-shadow: #c00 0 0 10px;
+    background-color: #222;
+}
+
+
+.alternarDot{
+    display: block;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    /* border: 1px solid white; */
+    box-shadow: #dedede 2px 2px 2px inset, inset -2px -2px 2px #444 , inset white 0 0 3px;
+    background-color: #bbb;
+
+    transition: all .3s;
+    margin-left: 1px;
+}
+
+.dotRight{
+margin-left: 22px;
+}
+
 
 /* #divInput > label {
     font-size: 1.2rem;
