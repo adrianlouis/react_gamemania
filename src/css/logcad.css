@@ -29,37 +29,32 @@ h1{
 #loginTitle {
     
     font-size: 2rem;
-    color: #ffd0d0;
+    color: #aaaaaa;
     margin: 30px 50px;
+    /* border: 1px solid blue; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    animation-name: neon;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-    transition: none;
+#login, #cadastro{
+    transition: all .3s;
+}
+
+.containerLoginCadastro{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.toogleEscolhido{
+    transition: all .3s;
+    color: #ffd0d0;
     text-shadow: #c00 0 0 10px, #c00 0 0 15px, #c00 0 0 30px;
 }
 
-@keyframes neon {
-    0% {color: #ffd0d0; text-shadow: #c00 0 0 10px, #c00 0 0 15px, #c00 0 0 30px;}
-    13% {color: #aaaaaa; text-shadow: none; }
-    24% {color: #ffd0d0; text-shadow: #c00 0 0 10px, #c00 0 0 15px, #c00 0 0 30px;}
-    30% {color: #aaaaaa; text-shadow: none; }
-    31% {color: #ffd0d0; text-shadow: #c00 0 0 10px, #c00 0 0 15px, #c00 0 0 30px;}
-    49% {color: #aaaaaa; text-shadow: none; }
-    50% {color: #ffd0d0; text-shadow: #c00 0 0 10px, #c00 0 0 15px, #c00 0 0 30px;}
-    65% {color: #aaaaaa; text-shadow: none;}
-    67% {color: #ffd0d0; text-shadow: #c00 0 0 10px, #c00 0 0 15px, #c00 0 0 30px;}
-}
-
-#loginTitle:before{
-    content: '';
-    width: 10px;
-    height: 3rem;
-    background-color: #c00;
-    display: block;
-    float: left;
-    margin-right: 20px;
-}
 
 #inputEmail{
     color: #c00;
@@ -95,21 +90,37 @@ a{
     font-size: .9rem;
 }
 
+.animate{
+    animation-name: inputComErro;
+    animation-duration: .3s;
+    color: gainsboro;
+}
+
+@keyframes inputComErro {
+    0%{transform: translateX(5px);}
+    25%{transform: translateX(-5px);}
+    50%{transform: translateX(5px);}
+    75%{transform: translateX(-5px);}
+    100%{transform: translateX(5px);}
+}
 
 
-
-.containerInputs span{
+/* .containerInputs span{ */
+#btnCadastrar, .btnLogar{
+/* #btnCadastrar, .containerInputs span{ */
     color: #dedede;
     background-color: red;
-    border: 2px solid red;
     font-weight: 700;
     text-align: center;
     padding: 5px ;
-    width: 80%;
+    width: calc(80% + 4px);
     margin: 10px;
     cursor: pointer;
 }
-
+#btnCadastrar{
+    color: gainsboro;
+    background-color: gray;
+}
 .loginAlert{
     /* position: absolute; */
     margin: 10px auto;
@@ -123,30 +134,47 @@ a{
     font-size: 1.2rem;
 }
 
+strong{
+    cursor: pointer;
+}
+.logregSpan{
+    color: #dedede;
+    margin: 5px;
+}
+
 .validacaoRegistro{
     width: 90vw;
-    /* height: 170px; */
-    /* border: 1px solid green; */
-
     margin: 10px;
-
-    display: none;
-    justify-content: start;
+    display: flex;
+    justify-content: center;
+    text-align: center;
     flex-direction: column;
     align-items: center;
-
-
 }
-.validacaoRegistro span{
+.validacaoRegistro p{
     color: red;
     background-color: transparent;
     border: none;
+    font-weight: 700;
     font-size: .8rem;
     margin: 5px 0;
     padding: unset;
     width: 100%;
-    /* text-align: left; */
+    display: none;
 }
+
+.btnRegOk{
+    background-color: 'green';
+    color: #dedede;
+}
+.btnRegNok{
+    background-color: gray;
+    color: gainsboro;
+}
+
+/* .validacaoRegistro :is( span:nth-child(5), span:nth-child(6)){
+    display: none;
+} */
 
 .iconeDosInputs{
     transition: all .3s;
@@ -156,15 +184,18 @@ a{
 .containerAlternarLoginRegistro{
     display: flex;
     height: 20px;
-    width: 40px;
-    border: 1px solid red;
+    width: 70px;
+    border: 1px solid #c00;
     border-radius: 25px;
     /* justify-content: start; */
     align-items: center;
     transition: all .3s;
     position: relative;
+    /* box-shadow: #c00 0 0 10px; */
     box-shadow: #c00 0 0 10px;
     background-color: #222;
+
+    transform: rotate(90deg);
 }
 
 
@@ -182,7 +213,7 @@ a{
 }
 
 .dotRight{
-margin-left: 22px;
+margin-left: 53px;
 }
 
 
