@@ -9,13 +9,15 @@ const Cart = () => {
     const [endereco, setEndereco] = React.useState(null)
     const [itemQuantidade, setItemQuantidade] = React.useState(1)
     const [precototal, setPrecototal] = React.useState(0)
+    const [qtd, setQtd] = React.useState([])
 
-    function calcularPreco(preco, desconto){
+
+    function calcularPreco(preco, desconto, unidade){
 
       if (desconto){
-        return ((preco - (preco * desconto))*itemQuantidade).toLocaleString('pt-Br', {style: 'currency', currency: 'BRL'})
+        return (((preco - (preco * desconto))*itemQuantidade)*unidade).toLocaleString('pt-Br', {style: 'currency', currency: 'BRL'})
       }else{
-        return ((preco)*itemQuantidade).toLocaleString('pt-Br', {style: 'currency', currency: 'BRL'})
+        return (((preco)*itemQuantidade)*unidade).toLocaleString('pt-Br', {style: 'currency', currency: 'BRL'})
       }
     }
 
@@ -37,6 +39,52 @@ const Cart = () => {
       el.style.transform= 'rotate(180deg)'
     }
 
+    React.useEffect(()=>{
+      console.log('MUDOU')
+
+     const newState = dados.wishlist.map((item)=>{
+      if (item.id === item.id){
+        return {...item, quantidade: 1}
+      }
+      return item
+     })
+    //  console.log(newState)
+     dados.setWishlist(newState)
+
+    //  console.log(dados.wishlist)
+    },[dados.wishlist.length])
+
+
+    function somarQtd(item, qtd, sinal){
+
+      if (qtd === 1 && sinal === 'minus'){
+        const remover = dados.wishlist.filter((filtro)=>{
+          return item.id !== filtro.id
+        })
+        dados.setWishlist(remover)
+      }else{
+
+        
+        const filtrado = dados.wishlist.filter((filtro)=>{
+          return filtro.id === item.id
+      })
+      const newState = dados.wishlist.map((item)=>{
+        if (item === filtrado[0]){
+          if (sinal === 'plus'){
+            return {...item, quantidade: qtd+1}
+          }else if(item.quantidade > 0){
+            return {...item, quantidade: qtd-1}
+          }else{
+            return {...item, quantidade: 0}
+          }
+        }
+        return item
+      })
+      dados.setWishlist(newState)
+    }
+  }
+
+
     return (
     <div id='cart'>
       <div className='minhacesta'>
@@ -44,18 +92,21 @@ const Cart = () => {
       <div className='minhacestaDetalhesModal'>
         <span>{}</span>
       </div>
-      <div className='iconeDetalhesMinhaCesta'>
+      {/* <div className='iconeDetalhesMinhaCesta'>
       <i id='iconeDetalhesMinhaCesta' className="fa-solid fa-circle-arrow-down" onClick={({target})=>mostrarResumoCesta(target)}></i>
-      </div>
+      </div> */}
 
       </div>
-            <div className='cartEndereco'>
+            {/* <div className='cartEndereco'>
                 <Input inputType='text' labelFor='cep'  textLabel={endereco ? 'Endereço: ' : 'Informe seu CEP: '} ></Input>
-            </div>
+            </div> */}
 
       <div className='cartContainer'>
 
         {dados.wishlist.map((item)=>(
+
+          
+
           <div className='cartPedido' key={item.id}>
           <div className='pedidoImg'>
             <img id='capaDoPedido' src={item.capa}></img>
@@ -63,16 +114,17 @@ const Cart = () => {
       
           <div className='pedidoDados'>
             <span>{item.nome}</span>
-            <span>Preço: {formatarParaReal(item.preco * itemQuantidade)}</span>
-            <span>Desconto: {formatarParaReal((item.preco * item.desconto) * itemQuantidade)}</span>
-            <span>Preço Final: {calcularPreco(item.preco, item.desconto)}</span>
+            <span>Preço: {formatarParaReal(item.preco * item.quantidade)}</span>
+            <span>Desconto: {formatarParaReal(((item.preco * item.desconto*item.quantidade)) * 1)}</span>
+            <span>Preço Final: {calcularPreco(item.preco, item.desconto, item.quantidade)}</span>
           </div>
 
           <div className='pedidoDadosIcones'>
-            <div className="pedidoQtd">
-          <i className="fa-solid fa-circle-plus" onClick={()=>setItemQuantidade(itemQuantidade + 1)} ></i>
-           {' '+itemQuantidade+' '}
-          <i className="fa-solid fa-circle-minus" onClick={()=>itemQuantidade !== 0 ? setItemQuantidade(itemQuantidade - 1): null} ></i>
+            <div className="pedidoQtd"> 
+          <i className="fa-solid fa-circle-plus" onClick={()=>somarQtd(item, item.quantidade, 'plus')} ></i>
+          {/* <i className="fa-solid fa-circle-plus" onClick={()=>setItemQuantidade(itemQuantidade + 1)} ></i> */}
+           <span id={'qtdItem'+item.id}>{item.quantidade}</span>
+          <i className="fa-solid fa-circle-minus" onClick={()=>somarQtd(item, item.quantidade, 'minus')} ></i>
             </div>
           <i className="fa-solid fa-trash-can" onClick={()=>remover(item)}></i>
           </div>

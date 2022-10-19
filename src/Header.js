@@ -26,7 +26,7 @@ const Header = () => {
 <Link to='/'><span><i className="fa-solid fa-house"/> {width <= 412 ? '' : 'Home'}</span></Link>
         {!context.logado ? (<>
             <Link to='logcad'><i className="fa-solid fa-user" /> {width <= 412 ? '' : 'Entrar'}</Link>
-            <Link to='register'><i className="fa-solid fa-user-pen" /> {width <= 412 ? '' : 'Registrar'}</Link>   
+            {/* <Link to='register'><i className="fa-solid fa-user-pen" /> {width <= 412 ? '' : 'Registrar'}</Link>    */}
         </>
         ) : (
           <>

@@ -21,34 +21,6 @@ const Detalhes = () => {
   const [plataforma, setPlataforma] = React.useState(null);
   const [midia, setMidia] = React.useState(null)
 
-  const cepBr = (code) => {
-    const regex = /[0-9]{5}-?[\d]{3}/;
-    return regex.test(code);
-  };
-
-  function cep({ target }) {
-    setCepVal(target.value);
-  }
-
-  async function consultarCep() {
-    const response = await fetch("http://viacep.com.br/ws/" + cepVal + "/json");
-    const cep = await response.json();
-    console.log(cep);
-    setDadosCep(cep);
-  }
-
-  function teste() {
-    if (cepBr(cepVal) === true) {
-      setErroCep(null);
-      consultarCep();
-    } else {
-      setErroCep("Verifique o cep informado.");
-      setDadosCep(null);
-    }
-    // cepBr(cepVal)? setErroCep(null) : setErroCep("Verifique o cep informado.")
-    // console.log(cepBr(cepVal))
-  }
-
   function moverMiniaturaLeft() {
     if (modalMiniatura === 0) {
       setModalMiniatura(4);
@@ -69,8 +41,6 @@ const Detalhes = () => {
   }, [modal]);
 
   console.log(jogos[item].screens[0]);
-
-  // const bg = document.querySelector('.detalhesSuperior').style.backgroundImage= `url(${jogos[item].capa})`
 
   return (
     <div className="detalhesMainContainer">
@@ -131,7 +101,7 @@ const Detalhes = () => {
               }}
               onClick={() => setPlataforma("Playstation")}
             >
-              <i class="fa-brands fa-playstation"></i>
+              <i className="fa-brands fa-playstation"></i>
             </div>
 
             <div
@@ -142,7 +112,7 @@ const Detalhes = () => {
               }}
               onClick={() => setPlataforma("PC")}
             >
-              <i class="fa-brands fa-windows"></i>
+              <i className="fa-brands fa-windows"></i>
             </div>
           </div>
         </div>
@@ -158,14 +128,14 @@ const Detalhes = () => {
               <div className="escolhaDeMidia">
 
                 <div className="divMidias" onClick={() => setMidia("Física")} >
-                 <i class="fa-solid fa-compact-disc" style={{
+                 <i className="fa-solid fa-compact-disc" style={{
                 color: midia === "Física" ? "#dedede" : null,
                 // backgroundColor: plataforma === "psn" ? "#dedede" : null,
               }}></i>
                 </div>
 
                 <div className="divMidias" onClick={() => setMidia("Digital")}>
-                  <i class="fa-solid fa-cloud-arrow-down" style={{
+                  <i className="fa-solid fa-cloud-arrow-down" style={{
                 color: midia === "Digital" ? "#dedede" : null,
                 // backgroundColor: plataforma === "psn" ? "#dedede" : null,
               }} ></i>
@@ -174,6 +144,9 @@ const Detalhes = () => {
               </div>
           </div>
         </div>
+
+
+        
       </div>
 
       {/* <div className="detalhesRight">

@@ -7,46 +7,87 @@ import dadosJson from './db.json'
 
 const LogCad = () => {
 
+    
+   
+    const [storage, setStorage] = React.useState([])
     const [userName, setUserName] = React.useState('')
     const [submit, setSubmit] = React.useState({nome:false, email:false, senha: false, confsenha:false })
     const [regOkay, setRegOkay] = React.useState(false)
-    const [email, setEmail] = React.useState('')
+    const [userLog, setUserLog] = React.useState('')
     const [senha, setSenha] = React.useState('')
     const [regEmail, setRegEmail] = React.useState('')
     const [regSenha, setRegSenha] = React.useState('')
     const [logReg, setLogReg] = React.useState(false)
-    const [alert, setAlert] = React.useState(null)
     const [confSenha, setConfSenha] = React.useState('')
     const [senhaValida, setSenhaValida] = React.useState(false)
+    const [msgErro, setMsgErro] = React.useState('')
+
+    // console.log(storage)
+
+    const mensagensDeErro = [
+        'preencha seu email',
+        'preencha sua senha',
+        'Usuário e/ou senha não encontrado!'
+    ]
 
     const users = React.useContext(GlobalContext)
     const navigate = useNavigate()
-    
+
+    React.useEffect(()=>{
+        const dados = JSON.parse(window.localStorage.getItem('dadosUsers'))
+        if (dados !== null) {
+            setStorage([...dados])
+        }
+    },[])
+
+    React.useEffect(()=>{
+        if (storage.length > 0){
+            window.localStorage.setItem('dadosUsers', JSON.stringify(storage))
+        }
+    },[storage])
+
+    function registrar(){
+        if (!regOkay){
+            return
+        }
+        if (storage.length > 0){
+            setStorage([...storage, {id:storage.length+1, nome:userName, email:regEmail, senha:regSenha}])
+        }else{ 
+            setStorage([{id:storage.length+1, nome:userName, email:regEmail, senha:regSenha}])
+            
+        }
+        users.setLogado({email: userName})
+        navigate('/')
+    }
+
     function log(){
-        if (email === ''){
-           erroLogin('Preencha seu e-mail')
+        if (userLog === ''){
+            setMsgErro(mensagensDeErro[0])
         }else if(senha === ''){
-            erroLogin('Preencha sua senha')
+            setMsgErro(mensagensDeErro[1])
+        }else if(storage.length === 0){
+            setMsgErro(mensagensDeErro[2])
         }else{
-            users.users.map((user)=>{
-                if (user.email === email && user.senha === senha) {
-                    users.setLogado({email: user.email})
+            storage.map((user)=>{
+                if (user.nome === userLog && user.senha === senha) {
+                    users.setLogado({email: user.nome})
                     navigate('/')
-    
                     return
                 }else{
-                    erroLogin('Usuário e/ou senha não encontrado!')
+                    setMsgErro(mensagensDeErro[2])
                 }
             })
         }
     }
 
-    function erroLogin(msg){
-        setAlert(msg)
-        setTimeout(() => {
-            setAlert(null)
-        }, 5000);
-    }
+    React.useEffect(()=>{   
+    const time = setTimeout(() => {
+        setMsgErro('')
+    }, 3000);
+        
+      return ()=> clearTimeout(time)
+
+    },[msgErro])
 
     function handleLogReg(){
         logReg?setLogReg(false):setLogReg(true)
@@ -79,15 +120,15 @@ const LogCad = () => {
             setSenhaValida(false)
             borda[2].style.boxShadow='none'
            borda[2].style.border='2px solid red'
-            // document.querySelector('#btnCadastrar').style.backgroundColor='red'
             setSubmit({...submit, senha:false})
         }
     }
-    
+
     function verificarUserName(){
-        const filtrado = dadosJson.filter((filtro)=>{
-            return filtro.userName === userName
+        const filtrado = storage.filter((filtro)=>{
+            return filtro.nome === userName
         })
+
 
         if (userName === ''){
             document.querySelector('#userName').parentNode.style.border="2px solid red"   
@@ -112,7 +153,8 @@ const LogCad = () => {
     }
 
     function verificarEmail(){
-        const filtrado = dadosJson.filter((filtro)=>{
+        
+        const filtrado = storage.filter((filtro)=>{
             return filtro.email === regEmail
         })
 
@@ -143,7 +185,6 @@ const LogCad = () => {
     }else{
         setRegOkay(false)
        }
-    //    console.log(submit)
     },[submit])
 
     React.useEffect(()=>{
@@ -169,6 +210,7 @@ const LogCad = () => {
             }
         }
     }
+
     React.useEffect(()=>{
        conferirSenhas()
     },[confSenha])
@@ -187,22 +229,50 @@ const LogCad = () => {
             }, 500);
         }
     }
+
+    
+    
+    // console.log(storage)
+    // window.localStorage.setItem('dadosUsers', JSON.stringify(storage))
+
+
+ 
+    // React.useEffect(()=>{
+    //     if (window.localStorage.getItem('dadosUsers') !== null){
+    //         setStorage(JSON.parse(window.localStorage.getItem('dadosUsers')))
+    //     }
+    // },[window.localStorage.getItem('dadosUsers')])
+
+    function removerDados(){
+        window.localStorage.clear();
+        setStorage(null)
+    }
+
+    function mostrarStorage(){
+        console.log(storage)
+        console.log(JSON.parse(window.localStorage.getItem('dadosUsers')))
+    }
+
+
    
   return (
     <div className='logcad'>
 
         <div className='logModal'>
 
+            <span id='spanTitle' className='toogleEscolhido'>{logReg? 'Cadastro' : 'Login'} </span>
+
             <div id='loginTitle'>
                 <div className='containerLoginCadastro'>
-                <span id='login' className={!logReg?'toogleEscolhido':null} >Login</span>
-                <span id='cadastro' className={logReg?'toogleEscolhido':null} >Cadastro</span>
                 </div>
 
-        
+                <i className={logReg? "fa-solid fa-user" : "fa-solid fa-user toogleEscolhido"} />
+
                 <div className='containerAlternarLoginRegistro' onClick={handleLogReg}>
                     <span  className={logReg?'alternarDot dotRight':'alternarDot'} />
                 </div>
+
+                <i className={logReg? "fa-solid fa-user-pen toogleEscolhido" : "fa-solid fa-user-pen"} />
 
             </div>
 
@@ -223,11 +293,9 @@ const LogCad = () => {
             <p>as duas senhas precisam ser iguais</p>
 </div>
 
-<span onClick={log} id='btnCadastrar' style={regOkay?{backgroundColor:'green'}:{backgroundColor:''} }  >Cadastrar</span>
+<span onClick={registrar} id='btnCadastrar' style={{backgroundColor: regOkay? 'green' : null}}  >Cadastrar</span>
 
-<span className='logregSpan'>já possui conta? <strong onClick={handleLogReg}>login</strong> </span>
-
-
+<span className='logregSpan'>já possui conta? <strong onClick={handleLogReg} className='toogleEscolhido'>login</strong> </span>
 
 </div>
         </>}
@@ -235,34 +303,19 @@ const LogCad = () => {
         {!logReg && <>
             <div className='containerInputs'>
 
-<InputLogin icone={<i className="fa-solid fa-user" />} placeholder='email' tipo='email' handleChange={({target})=>setEmail(target.value)} valor={email} />
+<InputLogin icone={<i className="fa-solid fa-user" />} placeholder='nome de usuário' tipo='text' handleChange={({target})=>setUserLog(target.value)} valor={userLog} />
 <InputLogin icone={<i className="fa-solid fa-key"></i>} placeholder='senha' tipo='password' handleChange={({target})=>setSenha(target.value)} valor={senha} />
 
 <span onClick={log} className='btnLogar' >Login</span>
-<span className='logregSpan'>esqueceu a <strong>senha</strong>?</span>
-<span className='logregSpan'>não possui conta? <strong onClick={handleLogReg}>registrar</strong></span>
-
-{/* <Link to='/asdasd'>esqueceu a <strong>senha</strong>?</Link>
-<Link to='/Register'><strong>registrar</strong> usuário?</Link> */}
+{msgErro && <span className='loginMsgErro'>{msgErro}</span>}
+<span className='logregSpan'>esqueceu a <strong className='toogleEscolhido'>senha</strong>?</span>
+<span className='logregSpan'>não possui conta? <strong onClick={handleLogReg} className='toogleEscolhido' >registrar</strong></span>
+<button onClick={removerDados} >REMOVER localStorage</button>
+<button onClick={mostrarStorage} >MOSTRAR storage</button>
 </div>
         </>}
 
-
-      {/* <h1><i className="fa-solid fa-user" /> Login</h1>
-      <p>Veja seus pedidos de forma fácil, compre mais rápido e tenha uma experiência personalizada</p>
-
-      <Input labelFor='e-mail' textLabel='e-mail' inputType='email' handleChange={(event)=>setEmail(event.target.value)} inputVal={email} />
-      <Input labelFor='logcadSenha' textLabel='senha' inputType='password' handleChange={(event) => setSenha(event.target.value)} inputVal={senha} />
-      <button id='logcadBtn' onClick={log}>continuar</button>
-      
-      <p>esqueceu a senha? <Link to='/asdasd'><strong>Clique aqui!</strong></Link> </p>
-      <p>não tem cadastro? <Link to='/Register'><strong>Cadastre-se</strong></Link></p>
-        {aviso && <p id='aviso'>{aviso}</p>} */}
-
-    <span className='loginAlert'>{alert}</span>
-
     </div>
-
 
 </div>
   )

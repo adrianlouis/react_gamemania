@@ -136,10 +136,18 @@
         font-size: 1rem;
         padding: 10px;
     }
+
+    .cartPedidos{
+        justify-content: space-between;
+    }
     
     .cartEndereco, .cartPedidos{
-        font-size: 1rem;
+        font-size: .8rem;
         padding: 10px;
+    }
+
+    .cartPedidos > *:nth-last-child(1){
+        width: 10%;
     }
 
     .cartEndereco {
@@ -164,7 +172,7 @@
     }
     .cartWishes{
         width: 100%;
-        border: 1px solid azure;
+        /* border: 1px solid azure; */
     }
 
     /* .cartResume{
@@ -227,5 +235,13 @@
         align-items: center;
         margin: 10px auto;
     }
+
+    .cartResume{
+        /* border: 1px solid red; */
+        width: 80%;
+        margin: 15px auto;
+        padding: 26px;
+    }
+
 
 }

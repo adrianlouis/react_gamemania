@@ -33,7 +33,10 @@
     height: 300px;
     border-radius: 5px;
     object-fit: cover;
+
+    border: 1px solid red;
 }
+
 
 .destNome{
     margin-top: 10px;

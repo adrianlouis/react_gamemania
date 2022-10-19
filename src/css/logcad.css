@@ -26,15 +26,24 @@ h1{
     padding: 20px;
     /* align-items: center; */
 }
+
+#spanTitle{
+    /* color: #faa; */
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin: 0px auto;
+}
+
 #loginTitle {
     
     font-size: 2rem;
     color: #aaaaaa;
-    margin: 30px 50px;
+    margin: 30px auto;
     /* border: 1px solid blue; */
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
+    width: 200px;
 }
 
 #login, #cadastro{
@@ -53,6 +62,12 @@ h1{
     transition: all .3s;
     color: #ffd0d0;
     text-shadow: #c00 0 0 10px, #c00 0 0 15px, #c00 0 0 30px;
+}
+
+.loginMsgErro{
+    color: #c00;
+    font-weight: 700;
+    margin: 10px 0;
 }
 
 
@@ -184,18 +199,18 @@ strong{
 .containerAlternarLoginRegistro{
     display: flex;
     height: 20px;
-    width: 70px;
+    width: 40px;
     border: 1px solid #c00;
     border-radius: 25px;
     /* justify-content: start; */
     align-items: center;
-    transition: all .3s;
+    transition: all .3s ease-in;
     position: relative;
     /* box-shadow: #c00 0 0 10px; */
     box-shadow: #c00 0 0 10px;
     background-color: #222;
 
-    transform: rotate(90deg);
+    /* transform: rotate(90deg); */
 }
 
 
@@ -213,7 +228,7 @@ strong{
 }
 
 .dotRight{
-margin-left: 53px;
+margin-left: 22px;
 }
 
 
